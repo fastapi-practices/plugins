@@ -1,0 +1,3 @@
+[submodule "plugins/api_key"]
+	path = plugins/api_key
+	url = https://github.com/fastapi-practices/api_key.git
