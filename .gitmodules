@@ -16,3 +16,6 @@
 [submodule "plugins/casbin_rbac"]
 	path = plugins/casbin_rbac
 	url = https://github.com/fastapi-practices/casbin_rbac.git
+[submodule "plugins/ai"]
+	path = plugins/ai
+	url = https://github.com/fastapi-practices/ai.git
