@@ -13,3 +13,6 @@
 [submodule "plugins/casdoor_sso"]
 	path = plugins/casdoor_sso
 	url = https://github.com/fastapi-practices/casdoor_sso.git
+[submodule "plugins/casbin_rbac"]
+	path = plugins/casbin_rbac
+	url = https://github.com/fastapi-practices/casbin_rbac.git
