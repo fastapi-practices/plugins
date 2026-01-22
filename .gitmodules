@@ -7,3 +7,6 @@
 [submodule "plugins/s3"]
 	path = plugins/s3
 	url = https://github.com/fastapi-practices/s3.git
+[submodule "plugins/mcp"]
+	path = plugins/mcp
+	url = https://github.com/fastapi-practices/mcp.git
