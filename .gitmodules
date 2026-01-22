@@ -4,3 +4,6 @@
 [submodule "plugins/task"]
 	path = plugins/task
 	url = https://github.com/fastapi-practices/task.git
+[submodule "plugins/s3"]
+	path = plugins/s3
+	url = https://github.com/fastapi-practices/s3.git
