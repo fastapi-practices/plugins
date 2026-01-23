@@ -25,3 +25,6 @@
 [submodule "plugins/ldap_auth"]
 	path = plugins/ldap_auth
 	url = https://github.com/dividduang/ldap_auth.git
+[submodule "plugins/sms"]
+	path = plugins/sms
+	url = https://github.com/RanY-Luck/sms.git
