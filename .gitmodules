@@ -22,3 +22,6 @@
 [submodule "plugins/oss"]
 	path = plugins/oss
 	url = https://github.com/fastapi-practices/oss.git
+[submodule "plugins/sms"]
+	path = plugins/sms
+	url = https://github.com/RanY-Luck/sms.git
