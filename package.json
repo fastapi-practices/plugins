@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "scripts": {
+    "generate": "tsx generate.ts",
+    "build": "tsx generate.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0"
+  },
+  "dependencies": {
+    "toml": "^3.0.0"
+  }
+}
