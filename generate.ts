@@ -7,18 +7,19 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const VALID_TAGS = [
-    'auth',
-    'permission',
-    'storage',
-    'notification',
-    'task',
-    'ai',
-    'sso',
-    'rbac',
-    'ldap',
-    'mcp',
-    'mysql',
-    'postgresql',
+    "ai",
+    "mcp",
+    "agent",
+    "rag",
+    "permission",
+    "sso",
+    "rbac",
+    "auth",
+    "ldap",
+    "storage",
+    "notification",
+    "task",
+    "other",
 ] as const
 
 interface PluginTomlPlugin {

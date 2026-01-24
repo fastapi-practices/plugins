@@ -1,16 +1,17 @@
 export const validTags = [
-  "auth",
+  "ai",
+  "mcp",
+  "agent",
+  "rag",
   "permission",
+  "sso",
+  "rbac",
+  "auth",
+  "ldap",
   "storage",
   "notification",
   "task",
-  "ai",
-  "sso",
-  "rbac",
-  "ldap",
-  "mcp",
-  "mysql",
-  "postgresql"
+  "other",
 ] as const
 
 export interface PluginTomlPlugin {
