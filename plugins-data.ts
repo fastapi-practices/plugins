@@ -11,7 +11,7 @@ export const validTags = [
   "storage",
   "notification",
   "task",
-  "other",
+  "other"
 ] as const
 
 export interface PluginTomlPlugin {

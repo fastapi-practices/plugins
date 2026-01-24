@@ -22,6 +22,8 @@ const VALID_TAGS = [
     "other",
 ] as const
 
+const VALID_DATABASES = ['mysql', 'postgresql'] as const
+
 interface PluginTomlPlugin {
     icon?: string
     summary: string
@@ -111,13 +113,27 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string): PluginD
         }
 
         const rawPlugin = pluginConfig.plugin
+        let database: string[] | undefined
+        if (rawPlugin.database && Array.isArray(rawPlugin.database)) {
+            const filtered = rawPlugin.database
+                .map(db => {
+                    const lower = db.toLowerCase()
+                    if (lower === 'pgsql') return 'postgresql'
+                    return lower
+                })
+                .filter(db => VALID_DATABASES.includes(db as any))
+            if (filtered.length > 0) {
+                database = [...new Set(filtered)]
+            }
+        }
+
         const plugin: PluginTomlPlugin = {
             summary: rawPlugin.summary,
             version: rawPlugin.version,
             description: rawPlugin.description,
             author: rawPlugin.author,
             ...(rawPlugin.tags && { tags: rawPlugin.tags }),
-            ...(rawPlugin.database && { database: rawPlugin.database }),
+            ...(database && { database }),
         }
 
         pluginDataList.push({
