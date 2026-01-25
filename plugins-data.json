@@ -167,10 +167,17 @@
     {
       "plugin": {
         "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
-        "summary": "Taskiq 任务",
+        "summary": "Task",
         "version": "0.0.1",
         "description": "基于 taskiq 的异步任务队列插件",
-        "author": "wu-clan"
+        "author": "wu-clan",
+        "tags": [
+          "task"
+        ],
+        "database": [
+          "mysql",
+          "postgresql"
+        ]
       },
       "git": {
         "path": "plugins/task",
