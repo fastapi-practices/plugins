@@ -70,7 +70,15 @@ export const pluginDataList: PluginData[] = [
       "summary": "Casbin RBAC",
       "version": "0.0.1",
       "description": "基于 Casbin 实现的 RBAC 访问控制",
-      "author": "wu-clan"
+      "author": "wu-clan",
+      "tags": [
+        "auth",
+        "rbac"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
     },
     "git": {
       "path": "plugins/casbin_rbac",
