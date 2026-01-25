@@ -1,0 +1,9 @@
+# 依赖
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
