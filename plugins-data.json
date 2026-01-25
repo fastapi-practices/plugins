@@ -118,10 +118,17 @@
     {
       "plugin": {
         "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
-        "summary": "阿里云 OSS",
+        "summary": "OSS",
         "version": "0.0.5",
-        "description": "阿里云 oss 文件上传",
-        "author": "wu-clan"
+        "description": "阿里云 OSS 文件上传",
+        "author": "wu-clan",
+        "tags": [
+          "notification"
+        ],
+        "database": [
+          "mysql",
+          "postgresql"
+        ]
       },
       "git": {
         "path": "plugins/oss",
