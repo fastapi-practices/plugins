@@ -92,7 +92,15 @@ export const pluginDataList: PluginData[] = [
       "summary": "Casdoor SSO",
       "version": "0.0.3",
       "description": "通过 Casdoor 实现 SSO 单点登录集成",
-      "author": "wu-clan"
+      "author": "wu-clan",
+      "tags": [
+        "auth",
+        "sso"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
     },
     "git": {
       "path": "plugins/casdoor_sso",
