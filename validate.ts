@@ -99,9 +99,22 @@ function main() {
         process.exit(0)
     }
 
-    const pluginDirs = fs.readdirSync(pluginsDir, { withFileTypes: true })
-        .filter(entry => entry.isDirectory() && !entry.name.startsWith('.'))
-        .map(entry => entry.name)
+    // 支持命令行参数指定要验证的插件
+    const args = process.argv.slice(2)
+    let pluginDirs: string[]
+
+    if (args.length > 0) {
+        // 验证指定的插件
+        pluginDirs = args.filter(name => {
+            const pluginPath = path.join(pluginsDir, name)
+            return fs.existsSync(pluginPath)
+        })
+    } else {
+        // 验证所有插件
+        pluginDirs = fs.readdirSync(pluginsDir, { withFileTypes: true })
+            .filter(entry => entry.isDirectory() && !entry.name.startsWith('.'))
+            .map(entry => entry.name)
+    }
 
     console.log(`验证 ${pluginDirs.length} 个插件...\n`)
 
