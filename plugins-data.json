@@ -202,7 +202,8 @@
           "task"
         ],
         "database": [
-          "mysql"
+          "mysql",
+          "postgresql"
         ]
       },
       "git": {

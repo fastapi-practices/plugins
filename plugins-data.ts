@@ -226,7 +226,8 @@ export const pluginDataList: PluginData[] = [
         "task"
       ],
       "database": [
-        "mysql"
+        "mysql",
+        "postgresql"
       ]
     },
     "git": {
