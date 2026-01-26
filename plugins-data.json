@@ -3,16 +3,17 @@
     "ai",
     "mcp",
     "agent",
-    "rag",
-    "permission",
-    "sso",
-    "rbac",
     "auth",
-    "ldap",
     "storage",
     "notification",
     "task",
+    "payment",
     "other"
+  ],
+  "validDatabases": [
+    "mysql",
+    "pgsql",
+    "postgresql"
   ],
   "pluginDataList": [
     {
@@ -51,12 +52,11 @@
         "description": "基于 Casbin 实现的 RBAC 访问控制",
         "author": "wu-clan",
         "tags": [
-          "auth",
-          "rbac"
+          "auth"
         ],
         "database": [
           "mysql",
-          "postgresql"
+          "pgsql"
         ]
       },
       "git": {
@@ -73,12 +73,11 @@
         "description": "通过 Casdoor 实现 SSO 单点登录集成",
         "author": "wu-clan",
         "tags": [
-          "auth",
-          "sso"
+          "auth"
         ],
         "database": [
           "mysql",
-          "postgresql"
+          "pgsql"
         ]
       },
       "git": {
@@ -127,7 +126,7 @@
         ],
         "database": [
           "mysql",
-          "postgresql"
+          "pgsql"
         ]
       },
       "git": {
@@ -176,7 +175,7 @@
         ],
         "database": [
           "mysql",
-          "postgresql"
+          "pgsql"
         ]
       },
       "git": {

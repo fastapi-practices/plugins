@@ -2,17 +2,21 @@ export const validTags = [
   "ai",
   "mcp",
   "agent",
-  "rag",
-  "permission",
-  "sso",
-  "rbac",
   "auth",
-  "ldap",
   "storage",
   "notification",
   "task",
+  "payment",
   "other"
 ] as const
+export const validDatabases = [
+  "mysql",
+  "pgsql",
+  "postgresql"
+] as const
+
+export type ValidTag = typeof validTags[number]
+export type ValidDatabase = typeof validDatabases[number]
 
 export interface PluginTomlPlugin {
   icon: string
@@ -20,8 +24,8 @@ export interface PluginTomlPlugin {
   version: string
   description: string
   author: string
-  tags?: string[]
-  database?: string[]
+  tags?: ValidTag[]
+  database?: ValidDatabase[]
 }
 
 export interface GitModule {
@@ -72,12 +76,11 @@ export const pluginDataList: PluginData[] = [
       "description": "基于 Casbin 实现的 RBAC 访问控制",
       "author": "wu-clan",
       "tags": [
-        "auth",
-        "rbac"
+        "auth"
       ],
       "database": [
         "mysql",
-        "postgresql"
+        "pgsql"
       ]
     },
     "git": {
@@ -94,12 +97,11 @@ export const pluginDataList: PluginData[] = [
       "description": "通过 Casdoor 实现 SSO 单点登录集成",
       "author": "wu-clan",
       "tags": [
-        "auth",
-        "sso"
+        "auth"
       ],
       "database": [
         "mysql",
-        "postgresql"
+        "pgsql"
       ]
     },
     "git": {
@@ -148,7 +150,7 @@ export const pluginDataList: PluginData[] = [
       ],
       "database": [
         "mysql",
-        "postgresql"
+        "pgsql"
       ]
     },
     "git": {
@@ -197,7 +199,7 @@ export const pluginDataList: PluginData[] = [
       ],
       "database": [
         "mysql",
-        "postgresql"
+        "pgsql"
       ]
     },
     "git": {
