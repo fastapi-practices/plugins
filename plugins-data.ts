@@ -45,7 +45,14 @@ export const pluginDataList: PluginData[] = [
       "summary": "AI 工具",
       "version": "0.0.1",
       "description": "为系统提供 AI 赋能",
-      "author": "wu-clan"
+      "author": "wu-clan",
+      "tags": [
+        "ai"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
     },
     "git": {
       "path": "plugins/ai",
