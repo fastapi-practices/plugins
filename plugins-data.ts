@@ -92,7 +92,8 @@ export const pluginDataList: PluginData[] = [
         "auth"
       ],
       "database": [
-        "mysql"
+        "mysql",
+        "postgresql"
       ]
     },
     "git": {

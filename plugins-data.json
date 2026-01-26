@@ -68,7 +68,8 @@
           "auth"
         ],
         "database": [
-          "mysql"
+          "mysql",
+          "postgresql"
         ]
       },
       "git": {
