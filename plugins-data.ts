@@ -167,10 +167,11 @@ export const pluginDataList: PluginData[] = [
       "description": "阿里云 OSS 文件上传",
       "author": "wu-clan",
       "tags": [
-        "notification"
+        "storage"
       ],
       "database": [
-        "mysql"
+        "mysql",
+        "postgresql"
       ]
     },
     "git": {
