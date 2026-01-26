@@ -1,3 +1,4 @@
+// Data sync from: https://github.com/fastapi-practices/fastapi_best_architecture/blob/master/backend/plugin/validator.py
 export const VALID_TAGS = [
     "ai",
     "mcp",
