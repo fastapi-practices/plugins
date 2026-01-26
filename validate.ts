@@ -43,7 +43,7 @@ function validatePluginToml(pluginName: string, pluginPath: string): ValidationE
         errors.push({
             plugin: pluginName,
             field: 'plugin.toml',
-            message: `解析失败: ${e instanceof Error ? e.message : String(e)}`,
+            message: `解析失败: ${ e instanceof Error ? e.message : String(e) }`,
         })
         return errors
     }
@@ -116,7 +116,7 @@ function main() {
             .map(entry => entry.name)
     }
 
-    console.log(`验证 ${pluginDirs.length} 个插件...\n`)
+    console.log(`验证 ${ pluginDirs.length } 个插件...\n`)
 
     for (const pluginName of pluginDirs) {
         const pluginPath = path.join(pluginsDir, pluginName)
@@ -126,21 +126,21 @@ function main() {
 
     if (allErrors.length === 0) {
         console.log('所有插件验证通过')
-        console.log(`\n允许的 tags: ${VALID_TAGS.join(', ')}`)
-        console.log(`允许的 database: ${VALID_DATABASES.join(', ')}`)
+        console.log(`\n允许的 tags: ${ VALID_TAGS.join(', ') }`)
+        console.log(`允许的 database: ${ VALID_DATABASES.join(', ') }`)
         process.exit(0)
     }
 
     console.error('验证失败:\n')
     for (const error of allErrors) {
-        console.error(`[${error.plugin}] ${error.field}: ${error.message}`)
+        console.error(`[${ error.plugin }] ${ error.field }: ${ error.message }`)
         if (error.invalidValues) {
-            console.error(`  无效值: ${error.invalidValues.join(', ')}`)
+            console.error(`  无效值: ${ error.invalidValues.join(', ') }`)
         }
     }
 
-    console.error(`\n允许的 tags: ${VALID_TAGS.join(', ')}`)
-    console.error(`允许的 database: ${VALID_DATABASES.join(', ')}`)
+    console.error(`\n允许的 tags: ${ VALID_TAGS.join(', ') }`)
+    console.error(`允许的 database: ${ VALID_DATABASES.join(', ') }`)
     process.exit(1)
 }
 
