@@ -42,7 +42,14 @@
         "summary": "API Key",
         "version": "0.0.1",
         "description": "用户自定义 API Key 管理，支持生成、管理和使用 API Key 进行接口认证",
-        "author": "wu-clan"
+        "author": "wu-clan",
+        "tags": [
+          "auth"
+        ],
+        "database": [
+          "mysql",
+          "postgresql"
+        ]
       },
       "git": {
         "path": "plugins/api_key",
