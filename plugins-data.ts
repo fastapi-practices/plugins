@@ -11,7 +11,6 @@ export const validTags = [
 ] as const
 export const validDatabases = [
   "mysql",
-  "pgsql",
   "postgresql"
 ] as const
 
@@ -79,8 +78,7 @@ export const pluginDataList: PluginData[] = [
         "auth"
       ],
       "database": [
-        "mysql",
-        "pgsql"
+        "mysql"
       ]
     },
     "git": {
@@ -100,8 +98,7 @@ export const pluginDataList: PluginData[] = [
         "auth"
       ],
       "database": [
-        "mysql",
-        "pgsql"
+        "mysql"
       ]
     },
     "git": {
@@ -149,8 +146,7 @@ export const pluginDataList: PluginData[] = [
         "notification"
       ],
       "database": [
-        "mysql",
-        "pgsql"
+        "mysql"
       ]
     },
     "git": {
@@ -198,8 +194,7 @@ export const pluginDataList: PluginData[] = [
         "task"
       ],
       "database": [
-        "mysql",
-        "pgsql"
+        "mysql"
       ]
     },
     "git": {
