@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "generate": "tsx generate.ts",
-    "build": "tsx generate.ts"
+    "build": "tsx generate.ts",
+    "validate": "tsx validate.ts"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

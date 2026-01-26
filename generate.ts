@@ -2,27 +2,10 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import toml from 'toml'
+import { VALID_TAGS, VALID_DATABASES, ValidTag, ValidDatabase } from './constants.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-
-const VALID_TAGS = [
-    "ai",
-    "mcp",
-    "agent",
-    "rag",
-    "permission",
-    "sso",
-    "rbac",
-    "auth",
-    "ldap",
-    "storage",
-    "notification",
-    "task",
-    "other",
-] as const
-
-const VALID_DATABASES = ['mysql', 'postgresql'] as const
 
 const DEFAULT_ICON = 'https://wu-clan.github.io/picx-images-hosting/logo/fba.svg'
 
@@ -32,8 +15,8 @@ interface PluginTomlPlugin {
     version: string
     description: string
     author: string
-    tags?: string[]
-    database?: string[]
+    tags?: ValidTag[]
+    database?: ValidDatabase[]
 }
 
 interface PluginToml {
@@ -139,15 +122,24 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string): PluginD
         }
 
         const rawPlugin = pluginConfig.plugin
-        let database: string[] | undefined
+
+        // 验证并过滤 tags
+        let tags: ValidTag[] | undefined
+        if (rawPlugin.tags && Array.isArray(rawPlugin.tags)) {
+            const filtered = rawPlugin.tags
+            .map(tag => tag.toLowerCase())
+            .filter((tag): tag is ValidTag => VALID_TAGS.includes(tag as ValidTag))
+            if (filtered.length > 0) {
+                tags = [...new Set(filtered)]
+            }
+        }
+
+        // 验证并过滤 database
+        let database: ValidDatabase[] | undefined
         if (rawPlugin.database && Array.isArray(rawPlugin.database)) {
             const filtered = rawPlugin.database
-            .map(db => {
-                const lower = db.toLowerCase()
-                if (lower === 'pgsql') return 'postgresql'
-                return lower
-            })
-            .filter(db => VALID_DATABASES.includes(db as any))
+            .map(db => db.toLowerCase() as ValidDatabase)
+            .filter((db): db is ValidDatabase => VALID_DATABASES.includes(db))
             if (filtered.length > 0) {
                 database = [...new Set(filtered)]
             }
@@ -159,7 +151,7 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string): PluginD
             version: rawPlugin.version,
             description: rawPlugin.description,
             author: rawPlugin.author,
-            ...(rawPlugin.tags && { tags: rawPlugin.tags }),
+            ...(tags && { tags }),
             ...(database && { database }),
         }
 
@@ -174,6 +166,10 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string): PluginD
 
 function generateTypeScriptCode(pluginDataList: PluginData[]): string {
     return `export const validTags = ${ JSON.stringify(VALID_TAGS, null, 2) } as const
+export const validDatabases = ${ JSON.stringify(VALID_DATABASES, null, 2) } as const
+
+export type ValidTag = typeof validTags[number]
+export type ValidDatabase = typeof validDatabases[number]
 
 export interface PluginTomlPlugin {
   icon: string
@@ -181,8 +177,8 @@ export interface PluginTomlPlugin {
   version: string
   description: string
   author: string
-  tags?: string[]
-  database?: string[]
+  tags?: ValidTag[]
+  database?: ValidDatabase[]
 }
 
 export interface GitModule {
@@ -218,7 +214,7 @@ function main() {
 
     fs.writeFileSync(
         path.join(baseDir, 'plugins-data.json'),
-        JSON.stringify({ validTags: VALID_TAGS, pluginDataList }, null, 2),
+        JSON.stringify({ validTags: VALID_TAGS, validDatabases: VALID_DATABASES, pluginDataList }, null, 2),
         'utf-8'
     )
 
