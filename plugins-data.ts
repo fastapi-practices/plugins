@@ -143,7 +143,15 @@ export const pluginDataList: PluginData[] = [
       "summary": "MCP",
       "version": "0.0.3",
       "description": "MCP 服务器管理",
-      "author": "wu-clan"
+      "author": "wu-clan",
+      "tags": [
+        "ai",
+        "mcp"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
     },
     "git": {
       "path": "plugins/mcp",
