@@ -112,8 +112,8 @@ function main() {
     } else {
         // 验证所有插件
         pluginDirs = fs.readdirSync(pluginsDir, { withFileTypes: true })
-        .filter(entry => entry.isDirectory() && !entry.name.startsWith('.'))
-        .map(entry => entry.name)
+            .filter(entry => entry.isDirectory() && !entry.name.startsWith('.'))
+            .map(entry => entry.name)
     }
 
     console.log(`验证 ${ pluginDirs.length } 个插件...\n`)
