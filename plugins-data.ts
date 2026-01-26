@@ -186,7 +186,14 @@ export const pluginDataList: PluginData[] = [
       "summary": "S3",
       "version": "0.0.1",
       "description": "提供兼容 S3 协议的对象存储能力",
-      "author": "wu-clan"
+      "author": "wu-clan",
+      "tags": [
+        "storage"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
     },
     "git": {
       "path": "plugins/s3",
