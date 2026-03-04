@@ -47,7 +47,8 @@ export const pluginDataList: PluginData[] = [
       "description": "为系统提供 AI 赋能",
       "author": "wu-clan",
       "tags": [
-        "ai"
+        "ai",
+        "mcp"
       ],
       "database": [
         "mysql",
