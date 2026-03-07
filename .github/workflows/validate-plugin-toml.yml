@@ -7,6 +7,9 @@ on:
     paths:
       - 'plugins/**'
 
+permissions:
+  pull-requests: write
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -42,5 +45,57 @@ jobs:
         run: pnpm install
 
       - name: Validate plugin.toml files
+        id: validate
         if: steps.changed.outputs.plugins != ''
-        run: pnpm validate ${{ steps.changed.outputs.plugins }}
+        continue-on-error: true
+        env:
+          VALIDATION_REPORT_PATH: validation-report.md
+        run: |
+          pnpm validate ${{ steps.changed.outputs.plugins }}
+          echo "result=success" >> $GITHUB_OUTPUT
+        # If validation fails (exit 1), continue-on-error keeps the workflow running
+        # but 'result=success' won't be written to GITHUB_OUTPUT
+
+      - name: Post validation comment
+        if: always() && steps.changed.outputs.plugins != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- plugin-toml-validation -->';
+
+            let body;
+            const reportPath = 'validation-report.md';
+            if (fs.existsSync(reportPath)) {
+              body = marker + '\n' + fs.readFileSync(reportPath, 'utf8');
+            } else {
+              body = marker + '\n## Plugin TOML Validation Report\n\n> No validation report generated.';
+            }
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
+
+      - name: Fail if validation failed
+        if: steps.validate.outcome == 'failure'
+        run: exit 1

@@ -109,7 +109,7 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string): PluginD
         const pluginConfig = loadPluginToml(pluginPath)
 
         if (!pluginConfig?.plugin) {
-            console.warn(`警告: ${ pluginName } 没有有效的 plugin.toml`)
+            console.warn(`Warning: ${ pluginName } has no valid plugin.toml`)
             continue
         }
 
@@ -117,30 +117,32 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string): PluginD
         const gitModule = gitModules.get(modulePath)
 
         if (!gitModule) {
-            console.warn(`警告: ${ pluginName } 没有对应的 git submodule`)
+            console.warn(`Warning: ${ pluginName } has no matching git submodule`)
             continue
         }
 
         const rawPlugin = pluginConfig.plugin
 
-        // 验证并过滤 tags
+        // Validate and filter tags
         let tags: ValidTag[] | undefined
         if (rawPlugin.tags && Array.isArray(rawPlugin.tags)) {
             const filtered = rawPlugin.tags
             .map(tag => tag.toLowerCase())
             .filter((tag): tag is ValidTag => VALID_TAGS.includes(tag as ValidTag))
             if (filtered.length > 0) {
+                // @ts-ignore
                 tags = [...new Set(filtered)]
             }
         }
 
-        // 验证并过滤 database
+        // Validate and filter database
         let database: ValidDatabase[] | undefined
         if (rawPlugin.database && Array.isArray(rawPlugin.database)) {
             const filtered = rawPlugin.database
             .map(db => db.toLowerCase() as ValidDatabase)
             .filter((db): db is ValidDatabase => VALID_DATABASES.includes(db))
             if (filtered.length > 0) {
+                // @ts-ignore
                 database = [...new Set(filtered)]
             }
         }
@@ -201,10 +203,10 @@ function main() {
     const pluginsDir = path.join(baseDir, 'plugins')
     const gitmodulesPath = path.join(baseDir, '.gitmodules')
 
-    console.log('生成插件数据...')
+    console.log('Generating plugins data...')
 
     const pluginDataList = generatePluginData(pluginsDir, gitmodulesPath)
-    console.log(`找到 ${ pluginDataList.length } 个插件`)
+    console.log(`Found ${ pluginDataList.length } plugins`)
 
     fs.writeFileSync(
         path.join(baseDir, 'plugins-data.ts'),
@@ -218,7 +220,7 @@ function main() {
         'utf-8'
     )
 
-    console.log('完成')
+    console.log('Done')
 }
 
 main()
