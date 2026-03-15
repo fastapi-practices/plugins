@@ -28,3 +28,6 @@
 [submodule "plugins/sms"]
 	path = plugins/sms
 	url = https://github.com/RanY-Luck/sms.git
+[submodule "plugins/tenant"]
+	path = plugins/tenant
+	url = https://github.com/fastapi-practices/tenant.git
