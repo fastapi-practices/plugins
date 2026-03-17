@@ -31,3 +31,6 @@
 [submodule "plugins/tenant"]
 	path = plugins/tenant
 	url = https://github.com/fastapi-practices/tenant.git
+[submodule "plugins/api_key_ui"]
+	path = plugins/api_key_ui
+	url = https://github.com/yzbf-lin/api_key_ui.git
