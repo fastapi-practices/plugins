@@ -1,13 +1,15 @@
 name: Validate Plugin TOML
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - master
     paths:
       - 'plugins/**'
 
 permissions:
+  contents: read
+  issues: write
   pull-requests: write
 
 jobs:
@@ -20,11 +22,12 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Get changed plugins
         id: changed
         run: |
-          CHANGED_PLUGINS=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '^plugins/' | cut -d'/' -f2 | sort -u | tr '\n' ' ')
+          CHANGED_PLUGINS=$(git diff --name-only origin/${{ github.base_ref }}...${{ github.event.pull_request.head.sha }} | grep '^plugins/' | cut -d'/' -f2 | sort -u | tr '\n' ' ')
           echo "plugins=$CHANGED_PLUGINS" >> $GITHUB_OUTPUT
           echo "Changed plugins: $CHANGED_PLUGINS"
 
@@ -53,8 +56,6 @@ jobs:
         run: |
           pnpm validate ${{ steps.changed.outputs.plugins }}
           echo "result=success" >> $GITHUB_OUTPUT
-        # If validation fails (exit 1), continue-on-error keeps the workflow running
-        # but 'result=success' won't be written to GITHUB_OUTPUT
 
       - name: Post validation comment
         if: always() && steps.changed.outputs.plugins != ''
@@ -72,28 +73,37 @@ jobs:
               body = marker + '\n## Plugin TOML Validation Report\n\n> No validation report generated.';
             }
 
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-
-            const existing = comments.find(c => c.body && c.body.includes(marker));
-
-            if (existing) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existing.id,
-                body,
-              });
-            } else {
-              await github.rest.issues.createComment({
+            try {
+              const { data: comments } = await github.rest.issues.listComments({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                body,
               });
+
+              const existing = comments.find(c => c.body && c.body.includes(marker));
+
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existing.id,
+                  body,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  body,
+                });
+              }
+            } catch (error) {
+              if (error.status === 403) {
+                core.warning(`Skipping PR comment because the workflow token cannot write comments: ${error.message}`);
+                return;
+              }
+
+              throw error;
             }
 
       - name: Fail if validation failed
