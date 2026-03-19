@@ -85,6 +85,23 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+      "summary": "API Key UI",
+      "version": "0.0.1",
+      "description": "API Key 前端管理插件，提供列表、搜索、新增、编辑、启停与复制能力",
+      "author": "yzbf-lin",
+      "tags": [
+        "auth"
+      ]
+    },
+    "git": {
+      "path": "plugins/api_key_ui",
+      "url": "https://github.com/yzbf-lin/api_key_ui.git",
+      "branch": "master"
+    }
+  },
+  {
+    "plugin": {
+      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "Casbin RBAC",
       "version": "0.0.1",
       "description": "基于 Casbin 实现的 RBAC 访问控制",
