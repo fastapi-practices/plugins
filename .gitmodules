@@ -34,3 +34,6 @@
 [submodule "plugins/api_key_ui"]
 	path = plugins/api_key_ui
 	url = https://github.com/yzbf-lin/api_key_ui.git
+[submodule "plugins/ai_ui"]
+	path = plugins/ai_ui
+	url = https://github.com/fastapi-practices/ai_ui.git
