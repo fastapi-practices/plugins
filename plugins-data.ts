@@ -301,7 +301,7 @@ export const pluginDataList: PluginData[] = [
       "summary": "企业审批流",
       "version": "0.1.0",
       "description": "流程定义、审批实例、审批任务与消息通知",
-      "author": "eginner01",
+      "author": "Albert",
       "tags": [
         "task",
         "notification"
@@ -323,7 +323,7 @@ export const pluginDataList: PluginData[] = [
       "summary": "Workflow UI",
       "version": "0.1.0",
       "description": "企业审批流前端页面、流程设计器与申请侧视图",
-      "author": "eginner01",
+      "author": "Albert",
       "tags": [
         "task",
         "notification"
