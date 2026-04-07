@@ -45,3 +45,6 @@
 	path = plugins/workflow_ui
 	url = https://github.com/eginner01/workflow_ui.git
 	branch = main
+[submodule "plugins/wf"]
+	path = plugins/wf
+	url = https://github.com/shj366/workflow.git
