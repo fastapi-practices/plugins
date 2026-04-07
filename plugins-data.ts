@@ -294,5 +294,45 @@ export const pluginDataList: PluginData[] = [
       "url": "https://github.com/fastapi-practices/tenant.git",
       "branch": "master"
     }
+  },
+  {
+    "plugin": {
+      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+      "summary": "企业审批流",
+      "version": "0.1.0",
+      "description": "流程定义、审批实例、审批任务与消息通知",
+      "author": "Albert",
+      "tags": [
+        "task",
+        "notification"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
+    },
+    "git": {
+      "path": "plugins/workflow",
+      "url": "https://github.com/eginner01/workflow.git",
+      "branch": "master"
+    }
+  },
+  {
+    "plugin": {
+      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+      "summary": "Workflow UI",
+      "version": "0.1.0",
+      "description": "企业审批流前端页面、流程设计器与申请侧视图",
+      "author": "Albert",
+      "tags": [
+        "task",
+        "notification"
+      ]
+    },
+    "git": {
+      "path": "plugins/workflow_ui",
+      "url": "https://github.com/eginner01/workflow_ui.git",
+      "branch": "main"
+    }
   }
 ]
