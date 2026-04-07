@@ -48,3 +48,6 @@
 [submodule "plugins/wf"]
 	path = plugins/wf
 	url = https://github.com/shj366/workflow.git
+[submodule "plugins/wf_ui"]
+	path = plugins/wf_ui
+	url = https://github.com/shj366/workflow_ui.git
