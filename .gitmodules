@@ -37,3 +37,11 @@
 [submodule "plugins/ai_ui"]
 	path = plugins/ai_ui
 	url = https://github.com/fastapi-practices/ai_ui.git
+[submodule "plugins/workflow"]
+	path = plugins/workflow
+	url = https://github.com/eginner01/workflow.git
+	branch = main
+[submodule "plugins/workflow_ui"]
+	path = plugins/workflow_ui
+	url = https://github.com/eginner01/workflow_ui.git
+	branch = main
