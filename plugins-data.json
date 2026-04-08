@@ -61,7 +61,7 @@
       "plugin": {
         "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
         "summary": "API Key",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "description": "用户自定义 API Key 管理，支持生成、管理和使用 API Key 进行接口认证",
         "author": "wu-clan",
         "tags": [
