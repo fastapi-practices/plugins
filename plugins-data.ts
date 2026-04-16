@@ -298,6 +298,47 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+      "summary": "workflow审批流",
+      "version": "0.1.0",
+      "description": "基于 SnakerFlow 扩展的后端审批流引擎，提供流程定义管理、任务流转控制与实例状态维护功能",
+      "author": "shj366",
+      "tags": [
+        "task",
+        "notification",
+        "other"
+      ],
+      "database": [
+        "mysql"
+      ]
+    },
+    "git": {
+      "path": "plugins/wf",
+      "url": "https://github.com/shj366/workflow.git",
+      "branch": "main"
+    }
+  },
+  {
+    "plugin": {
+      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+      "summary": "workflow审批流UI",
+      "version": "0.1.0",
+      "description": "基于 snakerflow-designer-vue 构建的前端审批流引擎，提供可视化流程设计与展示能力",
+      "author": "shj366",
+      "tags": [
+        "task",
+        "notification",
+        "other"
+      ]
+    },
+    "git": {
+      "path": "plugins/wf_ui",
+      "url": "https://github.com/shj366/workflow_ui.git",
+      "branch": "master"
+    }
+  },
+  {
+    "plugin": {
+      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "企业审批流",
       "version": "0.1.0",
       "description": "流程定义、审批实例、审批任务与消息通知",
