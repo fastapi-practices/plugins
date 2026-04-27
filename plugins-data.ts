@@ -144,7 +144,7 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "Casdoor SSO",
-      "version": "0.0.3",
+      "version": "0.0.4",
       "description": "通过 Casdoor 实现 SSO 单点登录集成",
       "author": "wu-clan",
       "tags": [
@@ -257,7 +257,7 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "Task",
-      "version": "0.0.1",
+      "version": "0.0.2",
       "description": "基于 taskiq 的异步任务队列插件",
       "author": "wu-clan",
       "tags": [
