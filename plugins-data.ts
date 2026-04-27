@@ -123,7 +123,7 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "Casbin RBAC",
-      "version": "0.0.1",
+      "version": "0.0.2",
       "description": "基于 Casbin 实现的 RBAC 访问控制",
       "author": "wu-clan",
       "tags": [
