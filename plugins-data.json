@@ -232,6 +232,44 @@
     {
       "plugin": {
         "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "流式事件中心",
+        "version": "0.0.1",
+        "description": "统一 Socket.IO 事件通道、订阅、日志 tail 与前端消费协议",
+        "author": "pd-qa-backend",
+        "tags": [
+          "task"
+        ],
+        "database": [
+          "mysql"
+        ]
+      },
+      "git": {
+        "path": "plugins/stream_hub",
+        "url": "https://github.com/yzbf-lin/stream_hub.git",
+        "branch": "main"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "流式事件中心",
+        "version": "0.0.1",
+        "description": "统一事件通道、日志 tail 与日志文件查看页",
+        "author": "pd-qa-backend",
+        "tags": [
+          "task",
+          "other"
+        ]
+      },
+      "git": {
+        "path": "plugins/stream_hub_ui",
+        "url": "https://github.com/yzbf-lin/stream_hub_ui.git",
+        "branch": "main"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
         "summary": "Task",
         "version": "0.0.2",
         "description": "基于 taskiq 的异步任务队列插件",
