@@ -51,3 +51,11 @@
 [submodule "plugins/wf_ui"]
 	path = plugins/wf_ui
 	url = https://github.com/shj366/workflow_ui.git
+[submodule "plugins/stream_hub"]
+	path = plugins/stream_hub
+	branch = main
+	url = https://github.com/yzbf-lin/stream_hub.git
+[submodule "plugins/stream_hub_ui"]
+	path = plugins/stream_hub_ui
+	branch = main
+	url = https://github.com/yzbf-lin/stream_hub_ui.git
