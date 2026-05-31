@@ -1,7 +1,7 @@
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
-import toml from 'toml'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { parse as parseToml } from 'toml'
 import { VALID_TAGS, VALID_DATABASES, ValidTag, ValidDatabase } from './constants.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -34,6 +34,11 @@ interface ValidationResult {
     errors: ValidationError[]
 }
 
+interface ValidationSelection {
+    pluginDirs: string[]
+    skippedPlugins: string[]
+}
+
 const REQUIRED_FIELDS: (keyof Pick<PluginTomlPlugin, 'summary' | 'version' | 'description' | 'author'>)[] = [
     'summary',
     'version',
@@ -53,7 +58,7 @@ function validatePluginToml(pluginName: string, pluginPath: string): ValidationR
 
     let config: PluginToml
     try {
-        config = toml.parse(fs.readFileSync(tomlPath, 'utf-8')) as PluginToml
+        config = parseToml(fs.readFileSync(tomlPath, 'utf-8')) as PluginToml
     } catch (e) {
         errors.push({
             field: 'plugin.toml',
@@ -73,7 +78,7 @@ function validatePluginToml(pluginName: string, pluginPath: string): ValidationR
     // Validate required fields
     for (const field of REQUIRED_FIELDS) {
         const value = config.plugin[field]
-        if (!value || (typeof value === 'string' && value.trim() === '')) {
+        if (!value || (value.trim() === '')) {
             errors.push({
                 field,
                 message: 'Required field missing',
@@ -117,6 +122,31 @@ function validatePluginToml(pluginName: string, pluginPath: string): ValidationR
     }
 }
 
+function selectPluginDirs(pluginsDir: string, args: string[]): ValidationSelection {
+    const requestedPlugins = args.length > 0
+        ? args
+        : fs.readdirSync(pluginsDir, { withFileTypes: true })
+        .filter(entry => entry.isDirectory() && !entry.name.startsWith('.'))
+        .map(entry => entry.name)
+
+    const pluginDirs: string[] = []
+    const skippedPlugins: string[] = []
+
+    for (const pluginName of requestedPlugins) {
+        const pluginPath = path.join(pluginsDir, pluginName)
+        const tomlPath = path.join(pluginPath, 'plugin.toml')
+
+        if (fs.existsSync(tomlPath)) {
+            pluginDirs.push(pluginName)
+            continue
+        }
+
+        skippedPlugins.push(pluginName)
+    }
+
+    return { pluginDirs, skippedPlugins }
+}
+
 function formatFieldRow(name: string, value: string | string[] | undefined, error?: ValidationError): string {
     if (Array.isArray(value) && value.length > 0) {
         const display = value.map(v => `\`${ v }\``).join(', ')
@@ -131,11 +161,12 @@ function formatFieldRow(name: string, value: string | string[] | undefined, erro
     return `| \`${ name }\` | - | ${ error ? `❌ ${ error.message }` : '➖' } |\n`
 }
 
-function generateReport(results: ValidationResult[]): string {
+function generateReport(results: ValidationResult[], skippedPlugins: string[] = []): string {
     const allPassed = results.every(r => r.passed)
 
     let report = `## Plugin TOML Validation Report\n\n`
     report += `**Status**: ${ allPassed ? '✅ All Passed' : '❌ Validation Failed' }\n\n`
+    report += `**Summary**: ${ results.length } validated, ${ skippedPlugins.length } skipped\n\n`
 
     for (const result of results) {
         report += `### ${ result.passed ? '✅' : '❌' } \`${ result.plugin }\`\n\n`
@@ -163,6 +194,13 @@ function generateReport(results: ValidationResult[]): string {
         report += `| Database | ${ VALID_DATABASES.map(d => `\`${ d }\``).join(', ') } |\n`
     }
 
+    if (skippedPlugins.length > 0) {
+        report += `### Skipped\n\n`
+        for (const pluginName of skippedPlugins) {
+            report += `- \`${ pluginName }\`: missing \`plugin.toml\`\n`
+        }
+    }
+
     return report
 }
 
@@ -175,19 +213,8 @@ function main() {
         process.exit(0)
     }
 
-    const args = process.argv.slice(2)
-    let pluginDirs: string[]
-
-    if (args.length > 0) {
-        pluginDirs = args.filter(name => {
-            const pluginPath = path.join(pluginsDir, name)
-            return fs.existsSync(pluginPath)
-        })
-    } else {
-        pluginDirs = fs.readdirSync(pluginsDir, { withFileTypes: true })
-        .filter(entry => entry.isDirectory() && !entry.name.startsWith('.'))
-        .map(entry => entry.name)
-    }
+    const args = process.argv.slice(2).filter(arg => arg !== '--')
+    const { pluginDirs, skippedPlugins } = selectPluginDirs(pluginsDir, args)
 
     for (const pluginName of pluginDirs) {
         const pluginPath = path.join(pluginsDir, pluginName)
@@ -203,10 +230,13 @@ function main() {
     // Write report file (for CI)
     const reportPath = process.env.VALIDATION_REPORT_PATH
     if (reportPath) {
-        fs.writeFileSync(reportPath, generateReport(results), 'utf-8')
-        console.log(`Done: ${ passed } passed, ${ failed } failed`)
+        fs.writeFileSync(reportPath, generateReport(results, skippedPlugins), 'utf-8')
+        console.log(`Done: ${ passed } passed, ${ failed } failed, ${ skippedPlugins.length } skipped`)
     } else {
         console.log(`Validating ${ pluginDirs.length } plugins...\n`)
+        if (skippedPlugins.length > 0) {
+            console.warn(`Skipped ${ skippedPlugins.length } plugins without plugin.toml: ${ skippedPlugins.join(', ') }\n`)
+        }
         for (const { plugin, passed: ok, errors } of results) {
             if (ok) {
                 console.log(`  ✅ ${ plugin }`)

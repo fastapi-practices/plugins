@@ -18,7 +18,7 @@ export type ValidTag = typeof validTags[number]
 export type ValidDatabase = typeof validDatabases[number]
 
 export interface PluginTomlPlugin {
-  icon: string
+  icon?: string
   summary: string
   version: string
   description: string
@@ -41,7 +41,6 @@ export interface PluginData {
 export const pluginDataList: PluginData[] = [
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "AI",
       "version": "0.1.2",
       "description": "为系统提供 AI 赋能",
@@ -64,7 +63,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "AI UI",
       "version": "0.1.0",
       "description": "为系统提供 AI 对话、话题历史、快捷短语、供应商、模型和 MCP 管理能力",
@@ -83,7 +81,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "API Key",
       "version": "0.0.3",
       "description": "用户自定义 API Key 管理，支持生成、管理和使用 API Key 进行接口认证",
@@ -104,7 +101,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "API Key UI",
       "version": "0.0.1",
       "description": "API Key 前端管理插件，提供列表、搜索、新增、编辑、启停与复制能力",
@@ -121,7 +117,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "Casbin RBAC",
       "version": "0.0.2",
       "description": "基于 Casbin 实现的 RBAC 访问控制",
@@ -142,7 +137,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "Casdoor SSO",
       "version": "0.0.4",
       "description": "通过 Casdoor 实现 SSO 单点登录集成",
@@ -163,7 +157,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "LDAP",
       "version": "0.0.1",
       "description": "通过 LDAP 的方式登录系统",
@@ -177,7 +170,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "MCP",
       "version": "0.0.3",
       "description": "MCP 服务器管理",
@@ -199,7 +191,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "OSS",
       "version": "0.0.5",
       "description": "阿里云 OSS 文件上传",
@@ -220,7 +211,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "S3",
       "version": "0.0.1",
       "description": "提供兼容 S3 协议的对象存储能力",
@@ -241,7 +231,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "腾讯云短信服务",
       "version": "0.0.2",
       "description": "使用腾讯云短信服务发送短信验证码",
@@ -255,7 +244,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "流式事件中心",
       "version": "0.0.1",
       "description": "统一 Socket.IO 事件通道、订阅、日志 tail 与前端消费协议",
@@ -275,7 +263,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "流式事件中心",
       "version": "0.0.1",
       "description": "统一事件通道、日志 tail 与日志文件查看页",
@@ -293,7 +280,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "Task",
       "version": "0.0.2",
       "description": "基于 taskiq 的异步任务队列插件",
@@ -314,7 +300,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "多租户",
       "version": "0.0.1",
       "description": "为系统提供多租户能力，包括租户管理、套餐管理、行级数据隔离",
@@ -335,7 +320,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "workflow审批流",
       "version": "0.1.0",
       "description": "基于 SnakerFlow 扩展的后端审批流引擎，提供流程定义管理、任务流转控制与实例状态维护功能",
@@ -352,12 +336,11 @@ export const pluginDataList: PluginData[] = [
     "git": {
       "path": "plugins/wf",
       "url": "https://github.com/shj366/workflow.git",
-      "branch": "main"
+      "branch": "master"
     }
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "workflow审批流UI",
       "version": "0.1.0",
       "description": "基于 snakerflow-designer-vue 构建的前端审批流引擎，提供可视化流程设计与展示能力",
@@ -376,7 +359,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "企业审批流",
       "version": "0.1.0",
       "description": "流程定义、审批实例、审批任务与消息通知",
@@ -393,12 +375,11 @@ export const pluginDataList: PluginData[] = [
     "git": {
       "path": "plugins/workflow",
       "url": "https://github.com/eginner01/workflow.git",
-      "branch": "master"
+      "branch": "main"
     }
   },
   {
     "plugin": {
-      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "Workflow UI",
       "version": "0.1.0",
       "description": "企业审批流前端页面、流程设计器与申请侧视图",
