@@ -212,7 +212,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "S3",
-      "version": "0.0.1",
+      "version": "0.0.2",
       "description": "提供兼容 S3 协议的对象存储能力",
       "author": "wu-clan",
       "tags": [
