@@ -118,7 +118,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "Casbin RBAC",
-      "version": "0.0.2",
+      "version": "0.0.3",
       "description": "基于 Casbin 实现的 RBAC 访问控制",
       "author": "wu-clan",
       "tags": [
