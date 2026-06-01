@@ -192,7 +192,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "OSS",
-      "version": "0.0.5",
+      "version": "0.0.6",
       "description": "阿里云 OSS 文件上传",
       "author": "wu-clan",
       "tags": [
