@@ -138,7 +138,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "Casdoor SSO",
-      "version": "0.0.4",
+      "version": "0.0.5",
       "description": "通过 Casdoor 实现 SSO 单点登录集成",
       "author": "wu-clan",
       "tags": [
