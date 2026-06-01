@@ -281,7 +281,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "Task",
-      "version": "0.0.2",
+      "version": "0.0.3",
       "description": "基于 taskiq 的异步任务队列插件",
       "author": "wu-clan",
       "tags": [
