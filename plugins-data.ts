@@ -301,7 +301,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "多租户",
-      "version": "0.0.1",
+      "version": "0.0.2",
       "description": "为系统提供多租户能力，包括租户管理、套餐管理、行级数据隔离",
       "author": "wu-clan",
       "tags": [
