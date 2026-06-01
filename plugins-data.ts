@@ -82,7 +82,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "API Key",
-      "version": "0.0.3",
+      "version": "0.0.4",
       "description": "用户自定义 API Key 管理，支持生成、管理和使用 API Key 进行接口认证",
       "author": "wu-clan",
       "tags": [
