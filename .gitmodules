@@ -59,3 +59,6 @@
 	path = plugins/stream_hub_ui
 	branch = main
 	url = https://github.com/yzbf-lin/stream_hub_ui.git
+[submodule "plugins/ddddocr_server"]
+	path = plugins/ddddocr_server
+	url = https://github.com/fastapi-practices/ddddocr_server.git
