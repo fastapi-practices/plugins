@@ -157,6 +157,25 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
+      "summary": "验证码识别服务",
+      "version": "0.0.1",
+      "description": "基于 ddddocr 的本地验证码识别 API（文本/滑块/点选）",
+      "author": "fba",
+      "tags": [
+        "other"
+      ],
+      "database": [
+        "mysql"
+      ]
+    },
+    "git": {
+      "path": "plugins/ddddocr_server",
+      "url": "https://github.com/fastapi-practices/ddddocr_server.git",
+      "branch": "master"
+    }
+  },
+  {
+    "plugin": {
       "summary": "LDAP",
       "version": "0.0.1",
       "description": "通过 LDAP 的方式登录系统",
