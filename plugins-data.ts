@@ -42,7 +42,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "AI",
-      "version": "0.1.2",
+      "version": "0.2.0",
       "description": "为系统提供 AI 赋能",
       "author": "wu-clan",
       "tags": [
