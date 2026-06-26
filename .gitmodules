@@ -62,3 +62,9 @@
 [submodule "plugins/ddddocr_server"]
 	path = plugins/ddddocr_server
 	url = https://github.com/fastapi-practices/ddddocr_server.git
+[submodule "plugins/text2sql"]
+	path = plugins/text2sql
+	url = https://github.com/dividduang/text2sql.git
+[submodule "plugins/text2sql_ui"]
+	path = plugins/text2sql_ui
+	url = https://github.com/dividduang/text2sql_ui.git

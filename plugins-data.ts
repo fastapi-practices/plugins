@@ -339,6 +339,44 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
+      "summary": "Text2SQL",
+      "version": "0.1.0",
+      "description": "自然语言查库（Text2SQL）：数据集/数据源/Few-shot 样例管理与只读安全取数，并可作为能力注入 ai 聊天",
+      "author": "david",
+      "tags": [
+        "ai",
+        "other"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
+    },
+    "git": {
+      "path": "plugins/text2sql",
+      "url": "https://github.com/dividduang/text2sql.git",
+      "branch": "master"
+    }
+  },
+  {
+    "plugin": {
+      "summary": "Text2SQL UI",
+      "version": "0.1.0",
+      "description": "Text2SQL 数据集 / 数据源 / Few-shot 样例管理（自然语言查库），需与 ai_ui 插件一同安装",
+      "author": "wu-clan",
+      "tags": [
+        "ai",
+        "other"
+      ]
+    },
+    "git": {
+      "path": "plugins/text2sql_ui",
+      "url": "https://github.com/dividduang/text2sql_ui.git",
+      "branch": "master"
+    }
+  },
+  {
+    "plugin": {
       "summary": "workflow审批流",
       "version": "0.1.0",
       "description": "基于 SnakerFlow 扩展的后端审批流引擎，提供流程定义管理、任务流转控制与实例状态维护功能",
