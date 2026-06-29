@@ -65,7 +65,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "AI UI",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "description": "为系统提供 AI 对话、话题历史、快捷短语、供应商、模型和 MCP 管理能力",
       "author": "wu-clan",
       "tags": [
