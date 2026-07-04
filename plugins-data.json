@@ -58,6 +58,27 @@
     },
     {
       "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "AI 分组管理",
+        "version": "0.1.0",
+        "description": "用于管理 AI 资源分组及资源可见性",
+        "author": "wu-clan",
+        "tags": [
+          "ai"
+        ],
+        "database": [
+          "mysql",
+          "postgresql"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai-group",
+        "url": "https://github.com/fastapi-practices/ai-group.git",
+        "branch": "master"
+      }
+    },
+    {
+      "plugin": {
         "summary": "API Key",
         "version": "0.0.4",
         "description": "用户自定义 API Key 管理，支持生成、管理和使用 API Key 进行接口认证",
