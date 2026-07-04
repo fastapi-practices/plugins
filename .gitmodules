@@ -71,3 +71,6 @@
 [submodule "plugins/ai-group"]
 	path = plugins/ai-group
 	url = https://github.com/fastapi-practices/ai-group.git
+[submodule "plugins/ai-group-ui"]
+	path = plugins/ai-group-ui
+	url = https://github.com/fastapi-practices/ai-group-ui.git
