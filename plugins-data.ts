@@ -84,7 +84,7 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "AI 分组管理",
-      "version": "0.1.0",
+      "version": "0.0.1",
       "description": "用于管理 AI 资源分组及资源可见性",
       "author": "wu-clan",
       "tags": [
