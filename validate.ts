@@ -39,6 +39,9 @@ interface ValidationSelection {
     skippedPlugins: string[]
 }
 
+const BACKEND_PLUGIN_NAME_PATTERN = /^[a-z0-9_]+$/
+const FRONTEND_PLUGIN_NAME_PATTERN = /^[a-z0-9_-]+$/
+
 const REQUIRED_FIELDS: (keyof Pick<PluginTomlPlugin, 'summary' | 'version' | 'description' | 'author'>)[] = [
     'summary',
     'version',
@@ -48,12 +51,37 @@ const REQUIRED_FIELDS: (keyof Pick<PluginTomlPlugin, 'summary' | 'version' | 'de
 
 const ALL_FIELDS: (keyof PluginTomlPlugin)[] = [...REQUIRED_FIELDS, 'icon', 'tags', 'database']
 
+function isFrontendPluginName(pluginName: string): boolean {
+    return pluginName.endsWith('_ui') || pluginName.endsWith('-ui')
+}
+
+function getPluginNameValidationError(pluginName: string): string | undefined {
+    const pattern = isFrontendPluginName(pluginName)
+        ? FRONTEND_PLUGIN_NAME_PATTERN
+        : BACKEND_PLUGIN_NAME_PATTERN
+
+    if (pattern.test(pluginName)) return undefined
+
+    return isFrontendPluginName(pluginName)
+        ? 'Frontend plugin names may only contain lowercase letters, numbers, underscores, and hyphens'
+        : 'Backend plugin names may only contain lowercase letters, numbers, and underscores'
+}
+
 function validatePluginToml(pluginName: string, pluginPath: string): ValidationResult | null {
     const errors: ValidationError[] = []
     const tomlPath = path.join(pluginPath, 'plugin.toml')
 
     if (!fs.existsSync(tomlPath)) {
         return null
+    }
+
+    const nameError = getPluginNameValidationError(pluginName)
+    if (nameError) {
+        errors.push({
+            field: 'name',
+            message: nameError,
+            invalidValues: [pluginName],
+        })
     }
 
     let config: PluginToml
@@ -180,6 +208,8 @@ function generateReport(results: ValidationResult[], skippedPlugins: string[] = 
         const errorMap = new Map(result.errors.map(e => [e.field, e]))
         report += `| Field | Value | Status |\n`
         report += `|-------|-------|--------|\n`
+        const nameError = errorMap.get('name')
+        report += formatFieldRow('name', result.plugin, nameError)
         for (const field of ALL_FIELDS) {
             report += formatFieldRow(field, result.config[field], errorMap.get(field))
         }
@@ -190,6 +220,8 @@ function generateReport(results: ValidationResult[], skippedPlugins: string[] = 
         report += `### Reference\n\n`
         report += `| Type | Allowed Values |\n`
         report += `|------|----------------|\n`
+        report += `| Backend plugin name | lowercase letters, numbers, underscores |\n`
+        report += `| Frontend plugin name | lowercase letters, numbers, underscores, hyphens |\n`
         report += `| Tags | ${ VALID_TAGS.map(t => `\`${ t }\``).join(', ') } |\n`
         report += `| Database | ${ VALID_DATABASES.map(d => `\`${ d }\``).join(', ') } |\n`
     }

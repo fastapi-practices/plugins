@@ -36,11 +36,30 @@ interface PluginDataFile {
     pluginDataList?: PluginData[]
 }
 
+const BACKEND_PLUGIN_NAME_PATTERN = /^[a-z0-9_]+$/
+const FRONTEND_PLUGIN_NAME_PATTERN = /^[a-z0-9_-]+$/
+
 type PluginTomlLoadResult =
     | { status: 'loaded'; config: PluginToml }
     | { status: 'missing' }
     | { status: 'invalid'; error: string }
 
+
+function isFrontendPluginName(pluginName: string): boolean {
+    return pluginName.endsWith('_ui') || pluginName.endsWith('-ui')
+}
+
+function getPluginNameValidationError(pluginName: string): string | undefined {
+    const pattern = isFrontendPluginName(pluginName)
+        ? FRONTEND_PLUGIN_NAME_PATTERN
+        : BACKEND_PLUGIN_NAME_PATTERN
+
+    if (pattern.test(pluginName)) return undefined
+
+    return isFrontendPluginName(pluginName)
+        ? 'Frontend plugin names may only contain lowercase letters, numbers, underscores, and hyphens'
+        : 'Backend plugin names may only contain lowercase letters, numbers, and underscores'
+}
 
 function resolveIconUrl(iconPath: string | undefined, gitUrl: string, branch: string): string | undefined {
     if (!iconPath) return undefined
@@ -146,6 +165,11 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string, existing
 
     for (const gitModule of [...gitModules.values()].sort((a, b) => a.path.localeCompare(b.path))) {
         const pluginName = path.basename(gitModule.path)
+        const nameError = getPluginNameValidationError(pluginName)
+        if (nameError) {
+            throw new Error(`${ pluginName } has invalid plugin name: ${ nameError }`)
+        }
+
         const pluginPath = path.join(path.dirname(gitmodulesPath), gitModule.path)
         const pluginConfig = fs.existsSync(pluginPath) ? loadPluginToml(pluginPath) : { status: 'missing' } as const
         const existing = existingData.get(gitModule.path)
