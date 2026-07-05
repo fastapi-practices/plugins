@@ -68,9 +68,9 @@
 [submodule "plugins/text2sql_ui"]
 	path = plugins/text2sql_ui
 	url = https://github.com/dividduang/text2sql_ui.git
-[submodule "plugins/ai-group"]
-	path = plugins/ai-group
-	url = https://github.com/fastapi-practices/ai-group.git
-[submodule "plugins/ai-group-ui"]
-	path = plugins/ai-group-ui
-	url = https://github.com/fastapi-practices/ai-group-ui.git
+[submodule "plugins/ai_group"]
+	path = plugins/ai_group
+	url = https://github.com/fastapi-practices/ai_group.git
+[submodule "plugins/ai_group_ui"]
+	path = plugins/ai_group_ui
+	url = https://github.com/fastapi-practices/ai_group_ui.git

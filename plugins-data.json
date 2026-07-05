@@ -40,6 +40,44 @@
     },
     {
       "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "AI 分组管理",
+        "version": "0.0.1",
+        "description": "用于管理 AI 资源分组及资源可见性",
+        "author": "wu-clan",
+        "tags": [
+          "ai"
+        ],
+        "database": [
+          "mysql",
+          "postgresql"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai_group",
+        "url": "https://github.com/fastapi-practices/ai_group.git",
+        "branch": "master"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "AI 分组管理 UI",
+        "version": "0.0.1",
+        "description": "用于管理 AI 资源分组及资源可见性",
+        "author": "wu-clan",
+        "tags": [
+          "ai"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai_group_ui",
+        "url": "https://github.com/fastapi-practices/ai_group_ui.git",
+        "branch": "master"
+      }
+    },
+    {
+      "plugin": {
         "summary": "AI UI",
         "version": "0.3.0",
         "description": "为系统提供 AI 对话、话题历史、快捷短语、供应商、模型和 MCP 管理能力",
@@ -53,44 +91,6 @@
       "git": {
         "path": "plugins/ai_ui",
         "url": "https://github.com/fastapi-practices/ai_ui.git",
-        "branch": "master"
-      }
-    },
-    {
-      "plugin": {
-        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
-        "summary": "AI 分组管理",
-        "version": "0.1.0",
-        "description": "用于管理 AI 资源分组及资源可见性",
-        "author": "wu-clan",
-        "tags": [
-          "ai"
-        ],
-        "database": [
-          "mysql",
-          "postgresql"
-        ]
-      },
-      "git": {
-        "path": "plugins/ai-group",
-        "url": "https://github.com/fastapi-practices/ai-group.git",
-        "branch": "master"
-      }
-    },
-    {
-      "plugin": {
-        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
-        "summary": "AI 分组管理",
-        "version": "0.1.0",
-        "description": "用于管理 AI 资源分组及资源可见性",
-        "author": "wu-clan",
-        "tags": [
-          "ai"
-        ]
-      },
-      "git": {
-        "path": "plugins/ai-group-ui",
-        "url": "https://github.com/fastapi-practices/ai-group-ui.git",
         "branch": "master"
       }
     },
