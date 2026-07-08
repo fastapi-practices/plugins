@@ -249,6 +249,26 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
+      "summary": "MongoDB 数据访问插件",
+      "version": "0.1.0",
+      "description": "提供 MongoDB 连接配置、生命周期管理、Beanie 文档注册和插件内依赖注入能力",
+      "author": "yzbf",
+      "tags": [
+        "storage"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
+    },
+    "git": {
+      "path": "plugins/mongodb",
+      "url": "https://github.com/yzbf-lin/mongodb.git",
+      "branch": "main"
+    }
+  },
+  {
+    "plugin": {
       "summary": "OSS",
       "version": "0.0.6",
       "description": "阿里云 OSS 文件上传",
