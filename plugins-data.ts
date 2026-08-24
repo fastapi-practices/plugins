@@ -43,7 +43,7 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "AI",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "description": "为系统提供 AI 赋能",
       "author": "wu-clan",
       "tags": [
@@ -103,7 +103,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "AI UI",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "description": "为系统提供 AI 对话、话题历史、快捷短语、供应商、模型和 MCP 管理能力",
       "author": "wu-clan",
       "tags": [
@@ -245,6 +245,26 @@ export const pluginDataList: PluginData[] = [
       "path": "plugins/mcp",
       "url": "https://github.com/fastapi-practices/mcp.git",
       "branch": "master"
+    }
+  },
+  {
+    "plugin": {
+      "summary": "MongoDB 数据访问插件",
+      "version": "0.1.0",
+      "description": "提供 MongoDB 连接配置、生命周期管理、Beanie 文档注册和插件内依赖注入能力",
+      "author": "yzbf",
+      "tags": [
+        "storage"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
+    },
+    "git": {
+      "path": "plugins/mongodb",
+      "url": "https://github.com/yzbf-lin/mongodb.git",
+      "branch": "main"
     }
   },
   {
