@@ -102,6 +102,28 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
+      "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+      "summary": "AI MCP",
+      "version": "0.1.0",
+      "description": "AI MCP 服务器管理与工具调用能力",
+      "author": "wu-clan",
+      "tags": [
+        "ai",
+        "mcp"
+      ],
+      "database": [
+        "mysql",
+        "postgresql"
+      ]
+    },
+    "git": {
+      "path": "plugins/ai_mcp",
+      "url": "https://github.com/fastapi-practices/ai_mcp.git",
+      "branch": "master"
+    }
+  },
+  {
+    "plugin": {
       "summary": "AI UI",
       "version": "0.4.0",
       "description": "为系统提供 AI 对话、话题历史、快捷短语、供应商、模型和 MCP 管理能力",
@@ -223,27 +245,6 @@ export const pluginDataList: PluginData[] = [
     "git": {
       "path": "plugins/ldap_auth",
       "url": "https://github.com/dividduang/ldap_auth.git",
-      "branch": "master"
-    }
-  },
-  {
-    "plugin": {
-      "summary": "MCP",
-      "version": "0.0.3",
-      "description": "MCP 服务器管理",
-      "author": "wu-clan",
-      "tags": [
-        "ai",
-        "mcp"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
-      ]
-    },
-    "git": {
-      "path": "plugins/mcp",
-      "url": "https://github.com/fastapi-practices/mcp.git",
       "branch": "master"
     }
   },
