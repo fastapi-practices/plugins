@@ -71,9 +71,6 @@
 [submodule "plugins/ai_group_ui"]
 	path = plugins/ai_group_ui
 	url = https://github.com/fastapi-practices/ai_group_ui.git
-[submodule "plugins/ai_mcp"]
-	path = plugins/ai_mcp
-	url = https://github.com/fastapi-practices/ai_mcp.git
 [submodule "plugins/mongodb"]
 	path = plugins/mongodb
 	url = https://github.com/yzbf-lin/mongodb.git
