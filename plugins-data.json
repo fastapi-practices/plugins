@@ -262,6 +262,23 @@
     },
     {
       "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "S3 存储 UI",
+        "version": "0.1.0",
+        "description": "为系统管理提供 S3 对象存储配置与文件上传",
+        "author": "wu-clan",
+        "tags": [
+          "storage"
+        ]
+      },
+      "git": {
+        "path": "plugins/s3_ui",
+        "url": "https://github.com/fastapi-practices/s3_ui.git",
+        "branch": "master"
+      }
+    },
+    {
+      "plugin": {
         "summary": "腾讯云短信服务",
         "version": "0.0.2",
         "description": "使用腾讯云短信服务发送短信验证码",

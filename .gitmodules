@@ -75,3 +75,6 @@
 	path = plugins/mongodb
 	url = https://github.com/yzbf-lin/mongodb.git
 	branch = main
+[submodule "plugins/s3_ui"]
+	path = plugins/s3_ui
+	url = https://github.com/fastapi-practices/s3_ui.git
