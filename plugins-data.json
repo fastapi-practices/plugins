@@ -94,6 +94,24 @@
     },
     {
       "plugin": {
+        "summary": "AI Buddy UI",
+        "version": "0.0.1",
+        "description": "为 AI Buddy 提供后台管理，包括供应商、模型、默认助手模型、快捷短语、助手、MCP、知识库、技能和搜索密钥",
+        "author": "wu-clan",
+        "tags": [
+          "ai",
+          "agent",
+          "mcp"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai-buddy-ui",
+        "url": "https://github.com/fastapi-practices/ai-buddy-ui.git",
+        "branch": "master"
+      }
+    },
+    {
+      "plugin": {
         "summary": "API Key",
         "version": "0.0.5",
         "description": "用户自定义 API Key 管理，支持生成、管理和使用 API Key 进行接口认证",
