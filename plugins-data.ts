@@ -42,7 +42,7 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
-      "summary": "AI 基础对话",
+      "summary": "AI",
       "version": "1.0.0",
       "description": "为系统提供基础 AI 文本对话能力，包含供应商、模型、默认模型、快捷短语和会话管理",
       "author": "wu-clan",
@@ -64,9 +64,9 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
-      "summary": "AI 分组管理",
+      "summary": "AI Buddy Group",
       "version": "0.0.1",
-      "description": "用于管理 AI 资源分组及资源可见性",
+      "description": "用于管理 AI Buddy 资源分组及资源可见性",
       "author": "wu-clan",
       "tags": [
         "ai"
@@ -85,9 +85,9 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
-      "summary": "AI 分组管理 UI",
+      "summary": "AI Buddy Group UI",
       "version": "0.0.1",
-      "description": "用于管理 AI 资源分组及资源可见性",
+      "description": "fba AI Buddy Group 插件的前端实现",
       "author": "wu-clan",
       "tags": [
         "ai"
@@ -103,7 +103,7 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "summary": "AI UI",
       "version": "1.0.0",
-      "description": "为系统提供基础 AI 对话、话题历史、快捷短语、供应商和模型管理能力",
+      "description": "fba AI 插件的前端实现",
       "author": "wu-clan",
       "tags": [
         "ai",
@@ -120,7 +120,7 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "summary": "AI Buddy UI",
       "version": "0.0.1",
-      "description": "为 AI Buddy 提供后台管理，包括供应商、模型、默认助手模型、快捷短语、助手、MCP、知识库、技能和搜索密钥",
+      "description": "fba AI Buddy 插件的前端实现",
       "author": "wu-clan",
       "tags": [
         "ai",
@@ -215,7 +215,7 @@ export const pluginDataList: PluginData[] = [
       "summary": "验证码识别服务",
       "version": "0.0.1",
       "description": "基于 ddddocr 的本地验证码识别 API（文本/滑块/点选）",
-      "author": "fba",
+      "author": "david",
       "tags": [
         "other"
       ],
@@ -305,9 +305,9 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
-      "summary": "S3 存储 UI",
-      "version": "0.1.0",
-      "description": "为系统管理提供 S3 对象存储配置与文件上传",
+      "summary": "S3 UI",
+      "version": "0.0.1",
+      "description": "fba S3 插件的前端实现",
       "author": "wu-clan",
       "tags": [
         "storage"
