@@ -78,3 +78,6 @@
 [submodule "plugins/s3_ui"]
 	path = plugins/s3_ui
 	url = https://github.com/fastapi-practices/s3_ui.git
+[submodule "plugins/ai-buddy-ui"]
+	path = plugins/ai-buddy-ui
+	url = https://github.com/fastapi-practices/ai-buddy-ui.git
