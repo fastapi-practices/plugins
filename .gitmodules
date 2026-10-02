@@ -81,3 +81,11 @@
 [submodule "plugins/ai-buddy-ui"]
 	path = plugins/ai-buddy-ui
 	url = https://github.com/fastapi-practices/ai-buddy-ui.git
+[submodule "plugins/mcphub"]
+	path = plugins/mcphub
+	url = https://github.com/dividduang/mcphub.git
+	branch = main
+[submodule "plugins/mcphub_ui"]
+	path = plugins/mcphub_ui
+	url = https://github.com/dividduang/mcphub_ui.git
+	branch = main
