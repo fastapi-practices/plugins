@@ -244,6 +244,43 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
+      "summary": "MCP Hub",
+      "version": "1.0.0",
+      "description": "固定爬虫服务目录、工具授权申请与独立范围 API Key",
+      "author": "David",
+      "tags": [
+        "mcp",
+        "auth"
+      ],
+      "database": [
+        "mysql"
+      ]
+    },
+    "git": {
+      "path": "plugins/mcphub",
+      "url": "https://github.com/dividduang/mcphub.git",
+      "branch": "main"
+    }
+  },
+  {
+    "plugin": {
+      "summary": "MCP Hub",
+      "version": "1.0.0",
+      "description": "MCP 服务目录、工具申请授权与范围隔离 Key 管理",
+      "author": "David",
+      "tags": [
+        "mcp",
+        "auth"
+      ]
+    },
+    "git": {
+      "path": "plugins/mcphub_ui",
+      "url": "https://github.com/dividduang/mcphub_ui.git",
+      "branch": "main"
+    }
+  },
+  {
+    "plugin": {
       "summary": "MongoDB 数据访问插件",
       "version": "0.1.0",
       "description": "提供 MongoDB 连接配置、生命周期管理、Beanie 文档注册和插件内依赖注入能力",
