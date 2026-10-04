@@ -485,13 +485,11 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "summary": "workflow审批流",
-      "version": "0.1.0",
-      "description": "基于 SnakerFlow 扩展的后端审批流引擎，提供流程定义管理、任务流转控制与实例状态维护功能",
-      "author": "shj366",
+      "summary": "工作流引擎·企业审批流·钉钉风格",
+      "version": "1.0.0",
+      "description": "jeeflow工作流引擎",
+      "author": "Shj366",
       "tags": [
-        "task",
-        "notification",
         "other"
       ],
       "database": [
@@ -506,13 +504,11 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "summary": "workflow审批流UI",
-      "version": "0.1.0",
-      "description": "基于 snakerflow-designer-vue 构建的前端审批流引擎，提供可视化流程设计与展示能力",
+      "summary": "workflow工作流UI·企业审批流·钉钉风格",
+      "version": "1.0.0",
+      "description": "基于 mldong-flow-designer-plus 与 jeeflow 门面的前端审批流插件",
       "author": "shj366",
       "tags": [
-        "task",
-        "notification",
         "other"
       ]
     },
