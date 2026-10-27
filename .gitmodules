@@ -65,12 +65,6 @@
 [submodule "plugins/text2sql_ui"]
 	path = plugins/text2sql_ui
 	url = https://github.com/dividduang/text2sql_ui.git
-[submodule "plugins/ai_group"]
-	path = plugins/ai_group
-	url = https://github.com/fastapi-practices/ai_group.git
-[submodule "plugins/ai_group_ui"]
-	path = plugins/ai_group_ui
-	url = https://github.com/fastapi-practices/ai_group_ui.git
 [submodule "plugins/mongodb"]
 	path = plugins/mongodb
 	url = https://github.com/yzbf-lin/mongodb.git
@@ -92,3 +86,9 @@
 [submodule "plugins/ai_buddy"]
 	path = plugins/ai_buddy
 	url = https://github.com/fastapi-practices/ai_buddy.git
+[submodule "plugins/ai_buddy_group"]
+	path = plugins/ai_buddy_group
+	url = https://github.com/fastapi-practices/ai_buddy_group.git
+[submodule "plugins/ai-buddy-group-ui"]
+	path = plugins/ai-buddy-group-ui
+	url = https://github.com/fastapi-practices/ai-buddy-group-ui.git
