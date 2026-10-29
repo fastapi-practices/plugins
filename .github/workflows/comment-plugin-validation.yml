@@ -45,6 +45,19 @@ jobs:
               .replace(/>/g, '&gt;')
               .replace(/\n/g, ' ');
 
+            const sanitizeReportMarkdown = value => value
+              .replace(/\r\n?/g, '\n')
+              .replace(/\\/g, '\\\\')
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/\[/g, '\\[')
+              .replace(/\]/g, '\\]')
+              .replace(/@/g, '@<!-- -->')
+              .replace(/\b(https?|ftp):\/\//gi, '$1\\://')
+              .replace(/\bwww\./gi, 'www\\.')
+              .replace(/^ {0,3}(`{3,}|~{3,})/gm, fence => fence.replace(/[`~]/g, '\\$&'));
+
             const marker = '<!-- plugin-toml-validation -->';
             const reportPath = path.join(process.env.GITHUB_WORKSPACE, 'validation', 'validation-report.md');
 
@@ -87,12 +100,8 @@ jobs:
               const displayedReport = truncated
                 ? `${report.slice(0, maxReportLength)}\n\n> Report truncated`
                 : report;
-              const backtickRuns = displayedReport.match(/`+/g) ?? [];
-              const fence = '`'.repeat(Math.max(3, ...backtickRuns.map(run => run.length)) + 1);
-              body = marker + '\n' +
-                `## Plugin TOML Validation Report\n\n**Status**: ${status}\n\n` +
-                '<details>\n<summary>Validation details</summary>\n\n' +
-                `${fence}text\n${displayedReport}\n${fence}\n\n</details>\n\n` +
+              const renderedReport = sanitizeReportMarkdown(displayedReport);
+              body = marker + '\n' + renderedReport + '\n\n' +
                 `[View workflow logs](${escapeMarkdownLinkText(workflowUrl)})`;
             } else if (process.env.WORKFLOW_CONCLUSION === 'failure') {
               body = marker + '\n## Plugin TOML Validation Report\n\n' +
