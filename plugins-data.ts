@@ -210,7 +210,7 @@ export const pluginDataList: PluginData[] = [
     "git": {
       "path": "plugins/app_update",
       "url": "https://github.com/SoulEater/app_update.git",
-      "branch": "master"
+      "branch": "main"
     }
   },
   {
@@ -226,7 +226,7 @@ export const pluginDataList: PluginData[] = [
     "git": {
       "path": "plugins/app_update_ui",
       "url": "https://github.com/SoulEater/app_update_ui.git",
-      "branch": "master"
+      "branch": "main"
     }
   },
   {
