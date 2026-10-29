@@ -37,14 +37,23 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          CHANGED_PLUGINS=$(git diff --name-only "${BASE_SHA}...${HEAD_SHA}" | awk -F/ '/^plugins\// && NF >= 2 { print $2 }' | sort -u | tr '\n' ' ')
-          CHANGED_PLUGIN_COUNT=$(printf '%s' "$CHANGED_PLUGINS" | wc -w)
-          echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          if [ "$CHANGED_PLUGIN_COUNT" -eq 0 ]; then
-            echo "No plugins changed; validating all plugins"
+          CHANGED_PLUGINS=$(git diff --name-only --diff-filter=ACMR "${BASE_SHA}...${HEAD_SHA}" -- plugins | awk -F/ 'NF >= 2 { print $2 }' | sort -u | tr '\n' ' ')
+          CHANGED_PLUGINS="${CHANGED_PLUGINS% }"
+
+          for plugin in $CHANGED_PLUGINS; do
+            if ! printf '%s' "$plugin" | grep -Eq '^[a-z0-9_-]+$'; then
+              echo "Invalid plugin directory name: $plugin" >&2
+              exit 1
+            fi
+          done
+
+          if [ -n "$CHANGED_PLUGINS" ]; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
           fi
           echo "plugins=$CHANGED_PLUGINS" >> "$GITHUB_OUTPUT"
-          echo "Changed plugin count: $CHANGED_PLUGIN_COUNT"
+          echo "Changed plugins: ${CHANGED_PLUGINS:-none}"
 
       - name: Setup Node.js
         if: steps.changed.outputs.has_changes == 'true'
@@ -68,9 +77,22 @@ jobs:
         continue-on-error: true
         env:
           VALIDATION_REPORT_PATH: validation-report.md
+          CHANGED_PLUGINS: ${{ steps.changed.outputs.plugins }}
         run: |
-          pnpm validate ${{ steps.changed.outputs.plugins }}
+          test -n "$CHANGED_PLUGINS"
+          read -r -a plugin_names <<< "$CHANGED_PLUGINS"
+          pnpm validate "${plugin_names[@]}"
           echo "result=success" >> $GITHUB_OUTPUT
+
+      - name: Prepare no-change report
+        if: steps.changed.outputs.has_changes == 'false'
+        run: |
+          printf '%s\n' \
+            '## Plugin TOML Validation Report' \
+            '' \
+            '**Status**: ✅ No plugin submodules changed' \
+            '' \
+            'No plugin TOML validation was required for this pull request' > validation-report.md
 
       - name: Prepare fallback report
         if: always() && steps.changed.outputs.has_changes == 'true'
@@ -96,7 +118,7 @@ jobs:
           fi
 
       - name: Upload validation report
-        if: always() && steps.changed.outputs.has_changes == 'true'
+        if: always() && steps.changed.outcome == 'success'
         uses: actions/upload-artifact@v7
         with:
           name: plugin-toml-validation
