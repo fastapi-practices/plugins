@@ -95,6 +95,8 @@
 [submodule "plugins/app_update"]
 	path = plugins/app_update
 	url = https://github.com/SoulEater/app_update.git
+	branch = main
 [submodule "plugins/app_update_ui"]
 	path = plugins/app_update_ui
 	url = https://github.com/SoulEater/app_update_ui.git
+	branch = main
