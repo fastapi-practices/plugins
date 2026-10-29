@@ -101,10 +101,7 @@ jobs:
                 ? `${report.slice(0, maxReportLength)}\n\n> Report truncated`
                 : report;
               const renderedReport = sanitizeReportMarkdown(displayedReport);
-              body = marker + '\n' +
-                `## Plugin TOML Validation Report\n\n**Status**: ${status}\n\n` +
-                '<details>\n<summary>Validation details</summary>\n\n' +
-                `${renderedReport}\n\n</details>\n\n` +
+              body = marker + '\n' + renderedReport + '\n\n' +
                 `[View workflow logs](${escapeMarkdownLinkText(workflowUrl)})`;
             } else if (process.env.WORKFLOW_CONCLUSION === 'failure') {
               body = marker + '\n## Plugin TOML Validation Report\n\n' +
