@@ -3,7 +3,8 @@
   "scripts": {
     "generate": "tsx generate.ts",
     "build": "tsx generate.ts",
-    "validate": "tsx validate.ts"
+    "validate": "tsx validate.ts",
+    "validate:submission": "tsx scripts/validate-submission.ts"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
