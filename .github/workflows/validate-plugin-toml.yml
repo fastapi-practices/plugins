@@ -8,6 +8,7 @@ on:
       - 'plugins/**'
       - 'constants.ts'
       - 'validate.ts'
+      - 'scripts/validate-submission.ts'
       - 'package.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
@@ -82,6 +83,13 @@ jobs:
           test -n "$CHANGED_PLUGINS"
           read -r -a plugin_names <<< "$CHANGED_PLUGINS"
           pnpm validate "${plugin_names[@]}"
+          for plugin in "${plugin_names[@]}"; do
+            if [[ "$plugin" == *_ui || "$plugin" == *-ui ]]; then
+              pnpm validate:submission "$plugin" frontend
+            else
+              pnpm validate:submission "$plugin" backend
+            fi
+          done
           echo "result=success" >> $GITHUB_OUTPUT
 
       - name: Prepare no-change report

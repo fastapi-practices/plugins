@@ -10,6 +10,10 @@ Looking for plugin ideas? please check [issues](https://github.com/fastapi-pract
 
 ## Plugin submission
 
-Open a [plugin submission issue](https://github.com/fastapi-practices/plugins/issues/new?template=plugin-submission.yml) after the plugin repository is public and passes local validation. The workflow validates the repository structure and `plugin.toml`, then opens a marketplace pull request for review.
+After the plugin repository is public, use the
+[fba skill](https://github.com/fastapi-practices/skills) with your AI agent to run the pre-submission
+checks and create a marketplace pull request from your own GitHub account.
 
-The automation intentionally does not execute plugin code. Maintainers must configure the `PLUGIN_SUBMISSION_TOKEN` repository secret with permission to push bot branches and open pull requests. A personal access token is required instead of the default `GITHUB_TOKEN` so the PR can trigger the normal validation workflow. The token does not need issue permissions because issue comments use the repository `GITHUB_TOKEN`.
+Publishing runs from the contributor's fork, so commits and the pull request stay attributed to the
+plugin author. Validation reads the repository structure and `plugin.toml` without executing plugin
+code.
