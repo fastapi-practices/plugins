@@ -2,7 +2,7 @@ import * as fs from 'node:fs'
 import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse as parseToml } from 'toml'
-import { VALID_TAGS, VALID_DATABASES, ValidTag, ValidDatabase } from './constants.js'
+import { VALID_TAGS, ValidTag } from './constants.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -14,7 +14,6 @@ interface PluginTomlPlugin {
     description: string
     author: string
     tags?: string[]
-    database?: string[]
 }
 
 interface PluginToml {
@@ -49,7 +48,7 @@ const REQUIRED_FIELDS: (keyof Pick<PluginTomlPlugin, 'summary' | 'version' | 'de
     'author',
 ]
 
-const ALL_FIELDS: (keyof PluginTomlPlugin)[] = [...REQUIRED_FIELDS, 'icon', 'tags', 'database']
+const ALL_FIELDS: (keyof PluginTomlPlugin)[] = [...REQUIRED_FIELDS, 'icon', 'tags']
 
 function isFrontendPluginName(pluginName: string): boolean {
     return pluginName.endsWith('_ui') || pluginName.endsWith('-ui')
@@ -124,20 +123,6 @@ function validatePluginToml(pluginName: string, pluginPath: string): ValidationR
                 field: 'tags',
                 message: 'Invalid values',
                 invalidValues: invalidTags,
-            })
-        }
-    }
-
-    // Validate database
-    if (config.plugin.database && Array.isArray(config.plugin.database)) {
-        const invalidDatabases = config.plugin.database.filter(
-            db => !VALID_DATABASES.includes(db.toLowerCase() as ValidDatabase)
-        )
-        if (invalidDatabases.length > 0) {
-            errors.push({
-                field: 'database',
-                message: 'Invalid values',
-                invalidValues: invalidDatabases,
             })
         }
     }
@@ -223,7 +208,6 @@ function generateReport(results: ValidationResult[], skippedPlugins: string[] = 
         report += `| Backend plugin name | lowercase letters, numbers, underscores |\n`
         report += `| Frontend plugin name | lowercase letters, numbers, underscores, hyphens |\n`
         report += `| Tags | ${ VALID_TAGS.map(t => `\`${ t }\``).join(', ') } |\n`
-        report += `| Database | ${ VALID_DATABASES.map(d => `\`${ d }\``).join(', ') } |\n`
     }
 
     if (skippedPlugins.length > 0) {
@@ -282,7 +266,6 @@ function main() {
         console.log(`\nResult: ${ passed } passed, ${ failed } failed`)
         if (failed > 0) {
             console.error(`\nAllowed tags: ${ VALID_TAGS.join(', ') }`)
-            console.error(`Allowed database: ${ VALID_DATABASES.join(', ') }`)
         }
     }
 
