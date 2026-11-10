@@ -1,18 +1,10 @@
 import * as fs from 'node:fs'
 import * as path from 'node:path'
-import { parse as parseToml } from 'toml'
-
-import { VALID_DATABASES, type ValidDatabase } from '../constants.js'
-
-interface PluginManifest {
-    plugin?: {
-        database?: string[]
-    }
-}
 
 const BACKEND_PLUGIN_NAME_PATTERN = /^[a-z0-9_]+$/
 const FRONTEND_PLUGIN_NAME_PATTERN = /^[a-z0-9_-]+$/
 const REQUIRED_SQL_FILES = ['init.sql', 'destroy.sql', 'init_snowflake.sql', 'destroy_snowflake.sql']
+const DATABASE_DIR = 'postgresql'
 
 function fail(message: string): never {
     throw new Error(message)
@@ -53,22 +45,13 @@ function validateBackendStructure(pluginName: string, pluginPath: string): void 
     assertFile(path.join(pluginPath, '__init__.py'), '__init__.py')
 
     const modelPath = path.join(pluginPath, 'model')
-    if (!fs.existsSync(modelPath) || !fs.statSync(modelPath).isDirectory()) return
+    const sqlPath = path.join(pluginPath, 'sql')
+    const hasModel = fs.existsSync(modelPath) && fs.statSync(modelPath).isDirectory()
+    const hasSql = fs.existsSync(sqlPath) && fs.statSync(sqlPath).isDirectory()
+    if (!hasModel && !hasSql) return
 
-    const manifest = parseToml(fs.readFileSync(path.join(pluginPath, 'plugin.toml'), 'utf-8')) as PluginManifest
-    const databases = manifest.plugin?.database
-    if (!databases || databases.length === 0) {
-        fail('plugins with a model directory must declare plugin.database')
-    }
-
-    for (const database of databases) {
-        if (!VALID_DATABASES.includes(database as ValidDatabase)) {
-            fail(`unsupported database in plugin.database: ${ database }`)
-        }
-
-        for (const sqlFile of REQUIRED_SQL_FILES) {
-            assertFile(path.join(pluginPath, 'sql', database, sqlFile), `${ database } SQL file`)
-        }
+    for (const sqlFile of REQUIRED_SQL_FILES) {
+        assertFile(path.join(pluginPath, 'sql', DATABASE_DIR, sqlFile), `${ DATABASE_DIR } SQL file`)
     }
 
     if (!pluginName) {

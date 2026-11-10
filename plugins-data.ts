@@ -9,13 +9,8 @@ export const validTags = [
   "payment",
   "other"
 ] as const
-export const validDatabases = [
-  "mysql",
-  "postgresql"
-] as const
 
 export type ValidTag = typeof validTags[number]
-export type ValidDatabase = typeof validDatabases[number]
 
 export interface PluginTomlPlugin {
   icon?: string
@@ -24,7 +19,6 @@ export interface PluginTomlPlugin {
   description: string
   author: string
   tags?: ValidTag[]
-  database?: ValidDatabase[]
 }
 
 export interface GitModule {
@@ -43,16 +37,12 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "AI",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "为系统提供基础 AI 文本对话能力，包含供应商、模型、默认模型、快捷短语和会话管理",
       "author": "wu-clan",
       "tags": [
         "agent",
         "ai"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -65,17 +55,13 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "AI Buddy",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "为系统提供 Buddy 全量 AI 能力，由后端提供接口，前端后台管理，客户端在同一对话内切工作或编码",
       "author": "wu-clan",
       "tags": [
         "agent",
         "ai",
         "mcp"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -88,15 +74,11 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "AI Buddy Group",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "用于管理 AI Buddy 资源分组及资源可见性",
       "author": "wu-clan",
       "tags": [
         "ai"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -160,15 +142,11 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "API Key",
-      "version": "0.0.5",
+      "version": "0.0.6",
       "description": "用户自定义 API Key 管理，支持生成、管理和使用 API Key 进行接口认证",
       "author": "wu-clan",
       "tags": [
         "auth"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -201,10 +179,6 @@ export const pluginDataList: PluginData[] = [
       "author": "as-fba",
       "tags": [
         "storage"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -232,15 +206,11 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "Casbin RBAC",
-      "version": "0.0.3",
+      "version": "0.0.4",
       "description": "基于 Casbin 实现的 RBAC 访问控制",
       "author": "wu-clan",
       "tags": [
         "auth"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -252,15 +222,11 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "Casdoor SSO",
-      "version": "0.0.5",
+      "version": "0.0.6",
       "description": "通过 Casdoor 实现 SSO 单点登录集成",
       "author": "wu-clan",
       "tags": [
         "auth"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -272,14 +238,11 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "验证码识别服务",
-      "version": "0.0.1",
+      "version": "0.0.2",
       "description": "基于 ddddocr 的本地验证码识别 API（文本/滑块/点选）",
       "author": "david",
       "tags": [
         "other"
-      ],
-      "database": [
-        "mysql"
       ]
     },
     "git": {
@@ -310,9 +273,6 @@ export const pluginDataList: PluginData[] = [
       "tags": [
         "mcp",
         "auth"
-      ],
-      "database": [
-        "mysql"
       ]
     },
     "git": {
@@ -346,10 +306,6 @@ export const pluginDataList: PluginData[] = [
       "author": "yzbf",
       "tags": [
         "storage"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -361,15 +317,11 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "OSS",
-      "version": "0.0.6",
+      "version": "0.0.7",
       "description": "阿里云 OSS 文件上传",
       "author": "wu-clan",
       "tags": [
         "storage"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -382,15 +334,11 @@ export const pluginDataList: PluginData[] = [
     "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "S3",
-      "version": "0.0.3",
+      "version": "0.0.4",
       "description": "提供兼容 S3 协议的对象存储配置与文件读写能力",
       "author": "wu-clan",
       "tags": [
         "storage"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -437,9 +385,6 @@ export const pluginDataList: PluginData[] = [
       "author": "pd-qa-backend",
       "tags": [
         "task"
-      ],
-      "database": [
-        "mysql"
       ]
     },
     "git": {
@@ -468,15 +413,11 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "Task",
-      "version": "0.0.3",
+      "version": "0.0.4",
       "description": "基于 taskiq 的异步任务队列插件",
       "author": "wu-clan",
       "tags": [
         "task"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -488,15 +429,11 @@ export const pluginDataList: PluginData[] = [
   {
     "plugin": {
       "summary": "多租户",
-      "version": "0.0.2",
+      "version": "0.0.3",
       "description": "为系统提供多租户能力，包括租户管理、套餐管理、行级数据隔离",
       "author": "wu-clan",
       "tags": [
         "other"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -514,10 +451,6 @@ export const pluginDataList: PluginData[] = [
       "tags": [
         "ai",
         "other"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {
@@ -551,9 +484,6 @@ export const pluginDataList: PluginData[] = [
       "author": "Shj366",
       "tags": [
         "other"
-      ],
-      "database": [
-        "mysql"
       ]
     },
     "git": {
@@ -587,10 +517,6 @@ export const pluginDataList: PluginData[] = [
       "tags": [
         "task",
         "notification"
-      ],
-      "database": [
-        "mysql",
-        "postgresql"
       ]
     },
     "git": {

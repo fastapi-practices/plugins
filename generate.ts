@@ -2,7 +2,7 @@ import * as fs from 'node:fs'
 import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse as parseToml } from 'toml'
-import { VALID_TAGS, VALID_DATABASES, ValidTag, ValidDatabase } from './constants.js'
+import { VALID_TAGS, ValidTag } from './constants.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -14,7 +14,6 @@ interface PluginTomlPlugin {
     description: string
     author: string
     tags?: ValidTag[]
-    database?: ValidDatabase[]
 }
 
 interface PluginToml {
@@ -205,18 +204,6 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string, existing
             }
         }
 
-        // Validate and filter database
-        let database: ValidDatabase[] | undefined
-        if (rawPlugin.database && Array.isArray(rawPlugin.database)) {
-            const filtered = rawPlugin.database
-            .map(db => db.toLowerCase() as ValidDatabase)
-            .filter((db): db is ValidDatabase => VALID_DATABASES.includes(db))
-            if (filtered.length > 0) {
-                // @ts-ignore
-                database = [...new Set(filtered)]
-            }
-        }
-
         const icon = resolveIconUrl(rawPlugin.icon, gitModule.url, gitModule.branch)
         const plugin: PluginTomlPlugin = {
             ...(icon && { icon }),
@@ -225,7 +212,6 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string, existing
             description: rawPlugin.description,
             author: rawPlugin.author,
             ...(tags && { tags }),
-            ...(database && { database }),
         }
 
         pluginDataListByPath.set(gitModule.path, {
@@ -245,10 +231,8 @@ function generatePluginData(pluginsDir: string, gitmodulesPath: string, existing
 
 function generateTypeScriptCode(pluginDataList: PluginData[]): string {
     return `export const validTags = ${ JSON.stringify(VALID_TAGS, null, 2) } as const
-export const validDatabases = ${ JSON.stringify(VALID_DATABASES, null, 2) } as const
 
 export type ValidTag = typeof validTags[number]
-export type ValidDatabase = typeof validDatabases[number]
 
 export interface PluginTomlPlugin {
   icon?: string
@@ -257,7 +241,6 @@ export interface PluginTomlPlugin {
   description: string
   author: string
   tags?: ValidTag[]
-  database?: ValidDatabase[]
 }
 
 export interface GitModule {
@@ -293,7 +276,7 @@ function main() {
 
     fs.writeFileSync(
         path.join(baseDir, 'plugins-data.json'),
-        JSON.stringify({ validTags: VALID_TAGS, validDatabases: VALID_DATABASES, pluginDataList }, null, 2),
+        JSON.stringify({ validTags: VALID_TAGS, pluginDataList }, null, 2),
         'utf-8'
     )
 
