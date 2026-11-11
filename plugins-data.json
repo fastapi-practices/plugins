@@ -33,7 +33,7 @@
       "plugin": {
         "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
         "summary": "AI Buddy",
-        "version": "0.1.1",
+        "version": "0.2.0",
         "description": "为系统提供 Buddy 全量 AI 能力，由后端提供接口，前端后台管理，客户端在同一对话内切工作或编码",
         "author": "wu-clan",
         "tags": [
@@ -407,7 +407,7 @@
     {
       "plugin": {
         "summary": "多租户",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "description": "为系统提供多租户能力，包括租户管理、套餐管理、行级数据隔离",
         "author": "wu-clan",
         "tags": [
