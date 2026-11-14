@@ -1,0 +1,73 @@
+name: Collect Marketplace Data
+
+# 插件市场数据（stars、更新时间、收录时间）需要定时刷新
+# 数据发布在 plugins 仓库自身，文档站点运行时直接读取，不触发站点重建
+on:
+  schedule:
+    # 每小时刷新一次统计数据
+    # 使用非整点时刻，避开 GitHub 定时任务的调度高峰
+    - cron: '23 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    # 仅在插件清单发生变化时重新采集，避免采集提交自身再次触发
+    paths:
+      - 'plugins-data.json'
+      - '.gitmodules'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-marketplace-data
+  cancel-in-progress: true
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install
+
+      # plugins-data.json 是市场数据的 registry 来源，缺失时先生成一次
+      - name: Ensure plugins data
+        run: |
+          if [ ! -f plugins-data.json ]; then
+            pnpm generate
+          fi
+
+      - name: Collect marketplace data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm collect:marketplace
+
+      - name: Commit and push changes
+        run: |
+          if [ -z "$(git status --porcelain plugins-market.json marketplace-state.json)" ]; then
+            echo "no changes"
+            exit 0
+          fi
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add plugins-market.json marketplace-state.json
+          git commit -m "chore: update marketplace data"
+          git push

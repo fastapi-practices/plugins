@@ -1,0 +1,858 @@
+{
+  "generatedAt": "2026-11-14T07:56:04.905Z",
+  "validTags": [
+    "ai",
+    "mcp",
+    "agent",
+    "auth",
+    "storage",
+    "notification",
+    "task",
+    "payment",
+    "other"
+  ],
+  "plugins": [
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "AI",
+        "version": "1.0.1",
+        "description": "为系统提供基础 AI 文本对话能力，包含供应商、模型、默认模型、快捷短语和会话管理",
+        "author": "wu-clan",
+        "tags": [
+          "agent",
+          "ai"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai",
+        "url": "https://github.com/fastapi-practices/ai.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 4,
+        "forks": 2,
+        "watchers": 1,
+        "license": null,
+        "updatedAt": "2026-11-11T08:43:51Z",
+        "listedAt": "2026-01-22T11:17:20Z"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "AI Buddy",
+        "version": "0.2.0",
+        "description": "为系统提供 Buddy 全量 AI 能力，由后端提供接口，前端后台管理，客户端在同一对话内切工作或编码",
+        "author": "wu-clan",
+        "tags": [
+          "agent",
+          "ai",
+          "mcp"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai_buddy",
+        "url": "https://github.com/fastapi-practices/ai_buddy.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 1,
+        "forks": 0,
+        "watchers": 0,
+        "license": "AGPL-3.0",
+        "updatedAt": "2026-11-13T03:22:26Z",
+        "listedAt": "2026-10-27T02:46:37Z"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "AI Buddy Group",
+        "version": "0.1.1",
+        "description": "用于管理 AI Buddy 资源分组及资源可见性",
+        "author": "wu-clan",
+        "tags": [
+          "ai"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai_buddy_group",
+        "url": "https://github.com/fastapi-practices/ai_buddy_group.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-11-11T08:43:21Z",
+        "listedAt": "2026-10-27T03:26:33Z"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "AI Buddy Group UI",
+        "version": "0.0.1",
+        "description": "fba AI Buddy Group 插件的前端实现",
+        "author": "wu-clan",
+        "tags": [
+          "ai"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai-buddy-group-ui",
+        "url": "https://github.com/fastapi-practices/ai-buddy-group-ui.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-09-20T03:18:08Z",
+        "listedAt": "2026-10-27T03:26:33Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "AI Buddy UI",
+        "version": "0.1.0",
+        "description": "fba AI Buddy 插件的前端实现",
+        "author": "wu-clan",
+        "tags": [
+          "ai",
+          "agent",
+          "mcp"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai-buddy-ui",
+        "url": "https://github.com/fastapi-practices/ai-buddy-ui.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-10-27T03:17:07Z",
+        "listedAt": "2026-09-06T11:22:11Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "AI UI",
+        "version": "1.0.0",
+        "description": "fba AI 插件的前端实现",
+        "author": "wu-clan",
+        "tags": [
+          "ai",
+          "agent"
+        ]
+      },
+      "git": {
+        "path": "plugins/ai-ui",
+        "url": "https://github.com/fastapi-practices/ai-ui.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 2,
+        "forks": 2,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-09-06T13:58:29Z",
+        "listedAt": "2026-03-22T17:27:19Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "API Key",
+        "version": "0.0.6",
+        "description": "用户自定义 API Key 管理，支持生成、管理和使用 API Key 进行接口认证",
+        "author": "wu-clan",
+        "tags": [
+          "auth"
+        ]
+      },
+      "git": {
+        "path": "plugins/api_key",
+        "url": "https://github.com/fastapi-practices/api_key.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 2,
+        "forks": 4,
+        "watchers": 1,
+        "license": null,
+        "updatedAt": "2026-11-11T08:43:36Z",
+        "listedAt": "2026-01-22T09:57:52Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "API Key UI",
+        "version": "0.0.1",
+        "description": "API Key 前端管理插件，提供列表、搜索、新增、编辑、启停与复制能力",
+        "author": "yzbf-lin",
+        "tags": [
+          "auth"
+        ]
+      },
+      "git": {
+        "path": "plugins/api_key_ui",
+        "url": "https://github.com/yzbf-lin/api_key_ui.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 2,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-04-29T07:11:41Z",
+        "listedAt": "2026-03-19T01:41:37Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "应用管理",
+        "version": "0.2.0",
+        "description": "管理桌面应用版本、更新渠道和 Electron 更新产物",
+        "author": "as-fba",
+        "tags": [
+          "storage"
+        ]
+      },
+      "git": {
+        "path": "plugins/app_update",
+        "url": "https://github.com/SoulEater/app_update.git",
+        "branch": "main"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": "MIT",
+        "updatedAt": "2026-10-29T02:01:56Z",
+        "listedAt": "2026-10-29T03:36:29Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "应用更新管理前端 UI 插件（web-antdv-next）",
+        "version": "0.2.0",
+        "description": "管理桌面应用版本、更新渠道和 Electron 更新产物",
+        "author": "as-fba",
+        "tags": [
+          "storage"
+        ]
+      },
+      "git": {
+        "path": "plugins/app_update_ui",
+        "url": "https://github.com/SoulEater/app_update_ui.git",
+        "branch": "main"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": "MIT",
+        "updatedAt": "2026-10-29T02:01:54Z",
+        "listedAt": "2026-10-29T03:36:29Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "Casbin RBAC",
+        "version": "0.0.4",
+        "description": "基于 Casbin 实现的 RBAC 访问控制",
+        "author": "wu-clan",
+        "tags": [
+          "auth"
+        ]
+      },
+      "git": {
+        "path": "plugins/casbin_rbac",
+        "url": "https://github.com/fastapi-practices/casbin_rbac.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 1,
+        "forks": 4,
+        "watchers": 1,
+        "license": null,
+        "updatedAt": "2026-11-11T08:43:32Z",
+        "listedAt": "2026-01-22T11:16:50Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "Casdoor SSO",
+        "version": "0.0.6",
+        "description": "通过 Casdoor 实现 SSO 单点登录集成",
+        "author": "wu-clan",
+        "tags": [
+          "auth"
+        ]
+      },
+      "git": {
+        "path": "plugins/casdoor_sso",
+        "url": "https://github.com/fastapi-practices/casdoor_sso.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 2,
+        "forks": 0,
+        "watchers": 2,
+        "license": null,
+        "updatedAt": "2026-11-11T08:43:28Z",
+        "listedAt": "2026-01-22T11:16:01Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "验证码识别服务",
+        "version": "0.0.2",
+        "description": "基于 ddddocr 的本地验证码识别 API（文本/滑块/点选）",
+        "author": "david",
+        "tags": [
+          "other"
+        ]
+      },
+      "git": {
+        "path": "plugins/ddddocr_server",
+        "url": "https://github.com/fastapi-practices/ddddocr_server.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 4,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-11-11T08:54:20Z",
+        "listedAt": "2026-06-18T04:16:42Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "LDAP",
+        "version": "0.0.1",
+        "description": "通过 LDAP 的方式登录系统",
+        "author": "DAVID"
+      },
+      "git": {
+        "path": "plugins/ldap_auth",
+        "url": "https://github.com/dividduang/ldap_auth.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2025-08-11T15:32:07Z",
+        "listedAt": "2026-01-23T01:33:04Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "MCP Hub",
+        "version": "1.0.0",
+        "description": "固定爬虫服务目录、工具授权申请与独立范围 API Key",
+        "author": "David",
+        "tags": [
+          "mcp",
+          "auth"
+        ]
+      },
+      "git": {
+        "path": "plugins/mcphub",
+        "url": "https://github.com/dividduang/mcphub.git",
+        "branch": "main"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 1,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-10-07T07:03:11Z",
+        "listedAt": "2026-10-02T20:06:36Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "MCP Hub",
+        "version": "1.0.0",
+        "description": "MCP 服务目录、工具申请授权与范围隔离 Key 管理",
+        "author": "David",
+        "tags": [
+          "mcp",
+          "auth"
+        ]
+      },
+      "git": {
+        "path": "plugins/mcphub_ui",
+        "url": "https://github.com/dividduang/mcphub_ui.git",
+        "branch": "main"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-10-02T13:02:35Z",
+        "listedAt": "2026-10-02T20:06:36Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "MongoDB 数据访问插件",
+        "version": "0.1.0",
+        "description": "提供 MongoDB 连接配置、生命周期管理、Beanie 文档注册和插件内依赖注入能力",
+        "author": "yzbf",
+        "tags": [
+          "storage"
+        ]
+      },
+      "git": {
+        "path": "plugins/mongodb",
+        "url": "https://github.com/yzbf-lin/mongodb.git",
+        "branch": "main"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-07-13T12:36:52Z",
+        "listedAt": "2026-07-08T14:06:14Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "OSS",
+        "version": "0.0.7",
+        "description": "阿里云 OSS 文件上传",
+        "author": "wu-clan",
+        "tags": [
+          "storage"
+        ]
+      },
+      "git": {
+        "path": "plugins/oss",
+        "url": "https://github.com/fastapi-practices/oss.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 1,
+        "forks": 0,
+        "watchers": 1,
+        "license": null,
+        "updatedAt": "2026-11-11T08:43:47Z",
+        "listedAt": "2026-01-22T11:18:23Z"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "S3",
+        "version": "0.0.4",
+        "description": "提供兼容 S3 协议的对象存储配置与文件读写能力",
+        "author": "wu-clan",
+        "tags": [
+          "storage"
+        ]
+      },
+      "git": {
+        "path": "plugins/s3",
+        "url": "https://github.com/fastapi-practices/s3.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 1,
+        "forks": 1,
+        "watchers": 1,
+        "license": null,
+        "updatedAt": "2026-11-11T08:43:25Z",
+        "listedAt": "2026-01-22T11:14:31Z"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "S3 UI",
+        "version": "0.0.1",
+        "description": "fba S3 插件的前端实现",
+        "author": "wu-clan",
+        "tags": [
+          "storage"
+        ]
+      },
+      "git": {
+        "path": "plugins/s3-ui",
+        "url": "https://github.com/fastapi-practices/s3-ui.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-09-14T03:19:35Z",
+        "listedAt": "2026-09-04T09:51:00Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "腾讯云短信服务",
+        "version": "0.0.2",
+        "description": "使用腾讯云短信服务发送短信验证码",
+        "author": "ranyong"
+      },
+      "git": {
+        "path": "plugins/sms",
+        "url": "https://github.com/RanY-Luck/sms.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 1,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2025-07-10T09:56:03Z",
+        "listedAt": "2026-01-23T03:06:42Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "流式事件中心",
+        "version": "0.0.1",
+        "description": "统一 Socket.IO 事件通道、订阅、日志 tail 与前端消费协议",
+        "author": "pd-qa-backend",
+        "tags": [
+          "task"
+        ]
+      },
+      "git": {
+        "path": "plugins/stream_hub",
+        "url": "https://github.com/yzbf-lin/stream_hub.git",
+        "branch": "main"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 1,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-05-21T08:51:49Z",
+        "listedAt": "2026-05-21T09:48:44Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "流式事件中心",
+        "version": "0.0.1",
+        "description": "统一事件通道、日志 tail 与日志文件查看页",
+        "author": "pd-qa-backend",
+        "tags": [
+          "task",
+          "other"
+        ]
+      },
+      "git": {
+        "path": "plugins/stream_hub_ui",
+        "url": "https://github.com/yzbf-lin/stream_hub_ui.git",
+        "branch": "main"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 1,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-05-21T09:11:59Z",
+        "listedAt": "2026-05-21T09:48:44Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "Task",
+        "version": "0.0.4",
+        "description": "基于 taskiq 的异步任务队列插件",
+        "author": "wu-clan",
+        "tags": [
+          "task"
+        ]
+      },
+      "git": {
+        "path": "plugins/task",
+        "url": "https://github.com/fastapi-practices/task.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 2,
+        "forks": 0,
+        "watchers": 1,
+        "license": null,
+        "updatedAt": "2026-11-11T08:43:44Z",
+        "listedAt": "2026-01-22T11:13:45Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "多租户",
+        "version": "0.0.4",
+        "description": "为系统提供多租户能力，包括租户管理、套餐管理、行级数据隔离",
+        "author": "wu-clan",
+        "tags": [
+          "other"
+        ]
+      },
+      "git": {
+        "path": "plugins/tenant",
+        "url": "https://github.com/fastapi-practices/tenant.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 1,
+        "forks": 0,
+        "watchers": 1,
+        "license": null,
+        "updatedAt": "2026-11-11T08:43:40Z",
+        "listedAt": "2026-03-15T11:23:49Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "Text2SQL",
+        "version": "0.1.0",
+        "description": "自然语言查库（Text2SQL）：数据集/数据源/Few-shot 样例管理与只读安全取数，并可作为能力注入 ai 聊天",
+        "author": "david",
+        "tags": [
+          "ai",
+          "other"
+        ]
+      },
+      "git": {
+        "path": "plugins/text2sql",
+        "url": "https://github.com/dividduang/text2sql.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-07-24T06:20:08Z",
+        "listedAt": "2026-06-29T07:21:00Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "Text2SQL UI",
+        "version": "0.1.0",
+        "description": "Text2SQL 数据集 / 数据源 / Few-shot 样例管理（自然语言查库），需与 ai_ui 插件一同安装",
+        "author": "wu-clan",
+        "tags": [
+          "ai",
+          "other"
+        ]
+      },
+      "git": {
+        "path": "plugins/text2sql_ui",
+        "url": "https://github.com/dividduang/text2sql_ui.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-07-24T05:03:35Z",
+        "listedAt": "2026-06-29T07:21:00Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "工作流引擎·企业审批流·钉钉风格",
+        "version": "1.0.0",
+        "description": "jeeflow工作流引擎",
+        "author": "Shj366",
+        "tags": [
+          "other"
+        ]
+      },
+      "git": {
+        "path": "plugins/wf",
+        "url": "https://github.com/shj366/workflow.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 1,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-11-12T03:40:41Z",
+        "listedAt": "2026-04-16T01:38:36Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "workflow工作流UI·企业审批流·钉钉风格",
+        "version": "1.0.0",
+        "description": "基于 mldong-flow-designer-plus 与 jeeflow 门面的前端审批流插件",
+        "author": "shj366",
+        "tags": [
+          "other"
+        ]
+      },
+      "git": {
+        "path": "plugins/wf_ui",
+        "url": "https://github.com/shj366/workflow_ui.git",
+        "branch": "master"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 1,
+        "forks": 1,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-11-10T16:19:14Z",
+        "listedAt": "2026-04-16T01:38:36Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "企业审批流",
+        "version": "0.1.0",
+        "description": "流程定义、审批实例、审批任务与消息通知",
+        "author": "Albert",
+        "tags": [
+          "task",
+          "notification"
+        ]
+      },
+      "git": {
+        "path": "plugins/workflow",
+        "url": "https://github.com/eginner01/workflow.git",
+        "branch": "main"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-04-07T12:38:23Z",
+        "listedAt": "2026-04-07T12:59:05Z"
+      }
+    },
+    {
+      "plugin": {
+        "summary": "Workflow UI",
+        "version": "0.1.0",
+        "description": "企业审批流前端页面、流程设计器与申请侧视图",
+        "author": "Albert",
+        "tags": [
+          "task",
+          "notification"
+        ]
+      },
+      "git": {
+        "path": "plugins/workflow_ui",
+        "url": "https://github.com/eginner01/workflow_ui.git",
+        "branch": "main"
+      },
+      "source": "registry",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": null,
+        "updatedAt": "2026-04-07T12:38:26Z",
+        "listedAt": "2026-04-07T12:59:05Z"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "AI Buddy Billing UI",
+        "version": "0.1.0",
+        "description": "AI Buddy 计费插件的前端实现",
+        "author": "wu-clan",
+        "tags": [
+          "ai",
+          "payment"
+        ]
+      },
+      "git": {
+        "path": "marked/fastapi-practices/ai-buddy-billing-ui",
+        "url": "https://github.com/fastapi-practices/ai-buddy-billing-ui.git",
+        "branch": "master"
+      },
+      "source": "marked",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": "MIT",
+        "updatedAt": "2026-11-13T14:20:27Z",
+        "listedAt": "2026-11-13T16:21:21.855Z"
+      }
+    },
+    {
+      "plugin": {
+        "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
+        "summary": "AI Buddy Billing",
+        "version": "0.1.0",
+        "description": "为 AI Buddy 提供模型价格、用量账本、用户余额、充值调整和账单归集",
+        "author": "wu-clan",
+        "tags": [
+          "ai",
+          "payment"
+        ]
+      },
+      "git": {
+        "path": "marked/fastapi-practices/ai_buddy_billing",
+        "url": "https://github.com/fastapi-practices/ai_buddy_billing.git",
+        "branch": "master"
+      },
+      "source": "marked",
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "watchers": 0,
+        "license": "MIT",
+        "updatedAt": "2026-11-14T07:43:29Z",
+        "listedAt": "2026-11-13T16:21:22.505Z"
+      }
+    }
+  ]
+}

@@ -4,7 +4,8 @@
     "generate": "tsx generate.ts",
     "build": "tsx generate.ts",
     "validate": "tsx validate.ts",
-    "validate:submission": "tsx scripts/validate-submission.ts"
+    "validate:submission": "tsx scripts/validate-submission.ts",
+    "collect:marketplace": "tsx marketplace/collect.ts"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
