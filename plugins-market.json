@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T07:59:49.278Z",
+  "generatedAt": "2026-11-14T15:15:03.310Z",
   "validTags": [
     "ai",
     "mcp",
@@ -63,7 +63,7 @@
         "forks": 0,
         "watchers": 0,
         "license": "AGPL-3.0",
-        "updatedAt": "2026-11-13T03:22:26Z",
+        "updatedAt": "2026-11-14T08:38:30Z",
         "listedAt": "2026-10-27T02:46:37Z"
       }
     },
@@ -89,7 +89,7 @@
         "forks": 0,
         "watchers": 0,
         "license": null,
-        "updatedAt": "2026-11-11T08:43:21Z",
+        "updatedAt": "2026-11-14T08:34:27Z",
         "listedAt": "2026-10-27T03:26:33Z"
       }
     },
@@ -115,7 +115,7 @@
         "forks": 0,
         "watchers": 0,
         "license": null,
-        "updatedAt": "2026-09-20T03:18:08Z",
+        "updatedAt": "2026-11-14T08:34:37Z",
         "listedAt": "2026-10-27T03:26:33Z"
       }
     },
@@ -142,7 +142,7 @@
         "forks": 0,
         "watchers": 0,
         "license": null,
-        "updatedAt": "2026-10-27T03:17:07Z",
+        "updatedAt": "2026-11-14T08:38:35Z",
         "listedAt": "2026-09-06T11:22:11Z"
       }
     },
@@ -823,7 +823,7 @@
         "forks": 0,
         "watchers": 0,
         "license": "MIT",
-        "updatedAt": "2026-11-13T14:20:27Z",
+        "updatedAt": "2026-11-14T08:38:38Z",
         "listedAt": "2026-11-13T16:21:21.855Z"
       }
     },
@@ -850,7 +850,7 @@
         "forks": 0,
         "watchers": 0,
         "license": "MIT",
-        "updatedAt": "2026-11-14T07:43:29Z",
+        "updatedAt": "2026-11-14T08:38:33Z",
         "listedAt": "2026-11-13T16:21:22.505Z"
       }
     }
