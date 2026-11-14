@@ -89,23 +89,6 @@ export const pluginDataList: PluginData[] = [
   },
   {
     "plugin": {
-      "summary": "AI UI",
-      "version": "1.0.0",
-      "description": "fba AI 插件的前端实现",
-      "author": "wu-clan",
-      "tags": [
-        "ai",
-        "agent"
-      ]
-    },
-    "git": {
-      "path": "plugins/ai_ui",
-      "url": "https://github.com/fastapi-practices/ai_ui.git",
-      "branch": "master"
-    }
-  },
-  {
-    "plugin": {
       "icon": "https://wu-clan.github.io/picx-images-hosting/logo/fba.svg",
       "summary": "AI Buddy Group UI",
       "version": "0.0.1",
@@ -136,6 +119,23 @@ export const pluginDataList: PluginData[] = [
     "git": {
       "path": "plugins/ai-buddy-ui",
       "url": "https://github.com/fastapi-practices/ai-buddy-ui.git",
+      "branch": "master"
+    }
+  },
+  {
+    "plugin": {
+      "summary": "AI UI",
+      "version": "1.0.0",
+      "description": "fba AI 插件的前端实现",
+      "author": "wu-clan",
+      "tags": [
+        "ai",
+        "agent"
+      ]
+    },
+    "git": {
+      "path": "plugins/ai-ui",
+      "url": "https://github.com/fastapi-practices/ai-ui.git",
       "branch": "master"
     }
   },
@@ -359,8 +359,8 @@ export const pluginDataList: PluginData[] = [
       ]
     },
     "git": {
-      "path": "plugins/s3_ui",
-      "url": "https://github.com/fastapi-practices/s3_ui.git",
+      "path": "plugins/s3-ui",
+      "url": "https://github.com/fastapi-practices/s3-ui.git",
       "branch": "master"
     }
   },
